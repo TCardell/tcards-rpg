@@ -1,6 +1,6 @@
 # Roadmap — pre-alfa
 
-El orden prioriza un corte vertical online desde el principio. Hitos propuestos, no fechas prometidas.
+El orden prioriza un corte vertical online desde el principio. Hitos propuestos, no fechas prometidas. First Playable (docs/FIRST_TASK.md) agrupa v0.0.2–v0.0.7 en un único encargo autónomo con checkpoints, no seis tareas que deba iniciar el propietario. Cada hito se verifica antes de avanzar; no declarar versión implementada si falta prueba. El prólogo reducido y reparación Admin forman parte del objetivo integrado.
 
 | Hito | Alcance | Criterio de aceptación |
 |---|---|---|

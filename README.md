@@ -34,7 +34,10 @@ RPG web de mundo abierto, multijugador opcional, cartas dinámicas, mundos persi
 - [Multijugador](docs/MULTIPLAYER.md) · [Administración](docs/ADMIN.md)
 - [SCE y su integración](packages/swipe/README.md) · [Identidad](docs/BRAND.md)
 - [Hoja de ruta](ROADMAP.md) · [Backlog](docs/BACKLOG.md) · [Instrucciones para agentes](AGENTS.md)
-- [Primer encargo para Codex](docs/FIRST_TASK.md)
+- **[Encargo maestro First Playable](docs/FIRST_TASK.md)** · [Preparar Codex y Supabase](docs/CODEX_SETUP.md) · [Registro de progreso](PROGRESS.md)
+
+## Desarrollo inicial — First Playable
+Un objetivo autónomo de desarrollo con hitos internos v0.0.2–v0.0.7: interfaz fiel a SCE, Auth y persistencia, cooperación, aventura inicial, inventario/loot/oro y Admin básico. El trabajo no ha empezado; ver el encargo maestro y criterios de terminado. Sin gastos adicionales ni despliegue público sin autorización.
 
 ## Base gráfica SCE (referencia principal)
 No sustituir SCE por un swipe genérico: reutilizar su disposición espacial, gestos, transición, feedback de botón/banner/sello opuesto y cancelación. Adaptar al estado RPG sin reutilizar su motor de cuestionario como autoridad. Ver [integración SCE](packages/swipe/README.md) y [primer encargo](docs/FIRST_TASK.md).

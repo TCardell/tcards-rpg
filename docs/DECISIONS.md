@@ -45,6 +45,9 @@
 | ADR-041 | Acordada | Fantasía medieval elegante, oscura, minimalista e inspirada en Regicide; cartas protagonistas, temas personalizables, presentación separada de reglas |
 | ADR-042 | Propuesta | Arte IA reutilizable, hojas/lotes recortables cuando proceda, catálogo y placeholders primero, pipeline gradual sin proveedor obligatorio |
 | ADR-043 | Acordada | SCE como inspiración gráfica principal y base real de adaptación: seis gestos, fila espacial, feedback exacto y sello opuesto; no motor de cuestionario como autoridad |
+| ADR-044 | Acordada | Primer desarrollo como objetivo integrado First Playable: autonomía Codex, hitos internos v0.0.2–0.0.7, pruebas, checkpoints y límites de seguridad/coste; no encargar todo el juego ni requerir microaprobaciones |
+
+ADR-044: 2026-11-26. Ver FIRST_TASK, CODEX_SETUP y PROGRESS. El alcance integrado reemplaza la entrega única del primer hito, no su alcance local. Las reglas provisionales del prototipo no constituyen decisiones finales. No se ha iniciado Codex ni se ha conectado su entorno a Supabase.
 
 ADR-037 a ADR-043: 2026-11-26. Ver ADMIN, STUDIO, TUTORIAL, LANGUAGE, ART_DIRECTION, ASSET_PIPELINE, DESIGN_OVERVIEW, FIRST_TASK y packages/swipe/README. El GDD es histórico; ante discrepancia rige decisión posterior. Paletas, nombres, cifras, estilo final, herramientas y mecánicas concretas no cerradas.
 
