@@ -25,7 +25,21 @@
 | ADR-021 | Acordada | Mochila limitada por espacios, sin peso ni desgaste inicialmente |
 | ADR-022 | Acordada | Bases personales comprables o creables, personalizables, físicas y visitables, con almacenamiento |
 | ADR-023 | Acordada | Ajuste sutil de dificultad según participantes en algunas mazmorras/bosses; evitar escalado universal o marcado |
-| ADR-024 | Abierta | Profesiones, fabricación, comercio entre jugadores, clanes y propiedades colectivas: propuestas sin decisión |
+| ADR-024 | Acordada en parte | Comercio entre jugadores y trabajo AFK aprobados después; profesiones completas, fabricación, clanes y propiedades colectivas siguen abiertos |
+| ADR-025 | Acordada | Razas y clases clásicas de RPG, flexibilidad/híbridos; catálogo exacto por decidir; lápidas con estadísticas curiosas |
+| ADR-026 | Acordada | Mochila ampliable comprando mochilas mayores; almacén de base crece hasta capacidades muy altas; carga portátil limitada |
+| ADR-027 | Acordada | Rarezas clásicas y economía en monedas de oro; categoría único y probabilidades por decidir |
+| ADR-028 | Acordada | Interacción social en mismo mundo/localización/grupo; encuentros mediante observar/buscar amigos en puntos físicos; viajes juntos o libres, intercambio, duelos consentidos y visitas |
+| ADR-029 | Acordada | Progresión por experiencia, hitos, práctica, tareas, entrenamiento, misiones y objetos; no árbol por puntos a repartir |
+| ADR-030 | Acordada | NPC con memoria/relación sencilla; variedad de misiones narrativas, contratos, investigación, procedurales, colectivas y secretas, sin historia principal obligatoria |
+| ADR-031 | Acordada | Viaje ágil con animación breve y encuentros contextuales; evitar esperas largas obligatorias |
+| ADR-032 | Acordada | Ausencia breve conserva ubicación y riesgo en zonas peligrosas; derrota offline menos penalizada; retorno automático a casa tras ausencia prolongada; tratamiento hardcore pendiente |
+| ADR-033 | Acordada | Rutinas diarias configurables, cálculo retrospectivo al volver, trabajos AFK con menor rentabilidad que aventura y coste de energía; descanso recupera |
+| ADR-034 | Acordada | Buzones y correspondencia persistente con jugadores y NPC |
+| ADR-035 | Acordada | Un único mundo inicial; narrativa propia de cada mundo; fantasía medieval clásica con oscuridad y misterio; generación/configuración de nuevos mundos pendiente |
+| ADR-036 | Propuesta | Tablones sociales, crónicas y récords, chats, editor de rutinas e informe de retorno, detalles de liquidación idempotente y límites AFK |
+
+ADR-025 a ADR-036: 2026-11-26. Ver PROGRESSION, OFFLINE_ROUTINES, NPC, QUESTS, LOOT, ECONOMY, SOCIAL, MAIL, CHARACTERS, INVENTORY, HOUSING y WORLD. No fijar números, fórmulas, penalizaciones hardcore offline ni catálogo de contenido sin diseño y pruebas.
 
 ADR-016 a ADR-024: 2026-11-26. Ver WORLD.md, WORLD_EVENTS.md, CHARACTERS.md, COMBAT.md, INVENTORY.md, HOUSING.md y DUNGEONS.md para requisitos, alternativas, consecuencias y pruebas. Los números, fórmulas, lore y penalizaciones de ejemplo no son acuerdos.
 
