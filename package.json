@@ -1,0 +1,13 @@
+{
+  "name": "tcards-rpg",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Foundation for TCards RPG",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "npm run test:sce",
+    "test:sce": "node packages/swipe/sce/tests/model.test.cjs && node packages/swipe/sce/tests/player-feedback.test.cjs"
+  }
+}
