@@ -3,6 +3,7 @@
 ## Unreleased — documentación de diseño (2026-11-26)
 - Especificación UI/UX: portada, baraja y carta activa, interacción móvil, escritorio ampliado, paisajes contextuales, menú y persistencia.
 - Especificación CARDS.md: cartas como situaciones dinámicas, cuatro familias acordadas, transiciones, ejemplos, contratos provisionales y criterios de aceptación.
+- Lote de diseño: mundos independientes y jerárquicos, reloj real y alternativas nocturnas, múltiples personajes y clases flexibles, derrota/rescate/hardcore/cementerio, combate, mochila por espacios, propiedades físicas y escalado sutil de algunas mazmorras. Siete nuevos documentos de diseño; propuestas y preguntas abiertas identificadas.
 - Decisiones acordadas separadas de propuestas; instrucciones y primer encargo de Codex alineados.
 - Registro del proyecto Supabase de desarrollo creado y acceso de consulta verificado. Sin integración, cambios de esquema, código de gameplay ni nueva versión publicada.
 

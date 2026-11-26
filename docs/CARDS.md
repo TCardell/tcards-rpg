@@ -25,7 +25,7 @@ Los tipos determinan la presentación y las interacciones permitidas, no cuatro 
 
 Una plaza, una calle, una puerta de castillo, un camino, una sala de mazmorra y otros lugares se representan como cartas. Cada destino válido está ligado al mundo, no al índice de la carta. Ejemplo: desde plaza A, entrar a taberna B, caminar al castillo C o seguir ruta a bosque D. Al salir de la taberna volver a A; al recorrer otra salida, actualizar ubicación. El jugador puede explorar, retroceder y revisitar lugares, salvo impedimentos narrativos o físicos explícitos.
 
-Propuesta: grafo de nodos y conexiones dirigidas o bidireccionales, con condiciones (llave, acceso, horario, descubrimiento) y acciones locales. Separar ubicación actual, destinos, puntos de interés y actividades. No confundir desplazarse con abrir el mapa. El mapa puede consultar rutas sin consumir la carta.
+Acordado: mundo jerárquico y conectado mediante grafo (ver [WORLD.md](WORLD.md)). Propuesta técnica: nodos y conexiones dirigidas o bidireccionales, con condiciones (llave, acceso, horario, descubrimiento) y acciones locales. Separar ubicación actual, destinos, puntos de interés y actividades. No confundir desplazarse con abrir el mapa. El mapa puede consultar rutas sin consumir la carta.
 
 La interfaz permite hasta seis gestos; no limitar el diseño del mundo a seis conexiones. Cuando haya más destinos/NPC/servicios, usar subcartas de selección (p.ej. calles, establecimientos, caminos) o una lista accesible que devuelva la elección al motor. No hacer que el jugador recorra cartas aleatorias buscando una salida conocida. Señalar cuándo una opción abre otra selección o representa un movimiento real. Por concretar: opciones por página, viajes largos, encuentros durante viaje, coste y tiempo, descubrimiento, accesos bloqueados y ruta de regreso.
 
@@ -102,4 +102,4 @@ Rama alternativa: plaza → castillo → guardia → permiso denegado → volver
 
 ## 8. Próximos bloques de diseño
 
-Primero WORLD.md: unidades de mundo, conexiones, navegación, exploración, diferencia entre ubicación/actividad, tiempo de viaje, regreso, mapas y encuentros. Después CHARACTERS.md y COMBAT.md; NPC.md, INVENTORY.md, LOOT.md, ECONOMY.md, DUNGEONS.md y demás. Preguntas abiertas de este documento deben resolverse en esos bloques y referenciarse aquí. Registrar decisiones explícitas en DECISIONS.md sin convertir propuestas en requisitos. Mantener GDD original intacto.
+Ya documentados [WORLD.md](WORLD.md), [WORLD_EVENTS.md](WORLD_EVENTS.md), [CHARACTERS.md](CHARACTERS.md), [COMBAT.md](COMBAT.md), [INVENTORY.md](INVENTORY.md), [HOUSING.md](HOUSING.md) y [DUNGEONS.md](DUNGEONS.md). Pendientes detalle de NPC, LOOT, ECONOMY, QUESTS y reglas específicas de cada subsistema. Registrar decisiones explícitas sin convertir propuestas en requisitos. Mantener GDD original intacto.
