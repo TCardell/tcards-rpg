@@ -22,3 +22,6 @@ Siguiente acción: leer documentación, inspeccionar repo y demo SCE, establecer
 
 ## Registro
 Añadir por checkpoint: fecha, cambios, commit/rama, decisiones provisionales, pruebas exactas y resultados, migraciones (local/remoto y ref), riesgos, bloqueo/acción requerida, siguiente paso concreto. Nunca guardar secretos, correos reales ni datos de prueba privados.
+
+### 26 de noviembre · rama feature/first-playable
+Base deeb4f3. npm test pasó en la copia original. Demo SCE ejecutada en Chromium por HTTP. Se verificó la referencia Supabase y el esquema público vacío; el propietario autorizó escritura aditiva y datos ficticios solo en ese proyecto. En curso región declarativa, reglas TypeScript y shell SCE. Pendiente comprobar navegador, SQL y Admin.
