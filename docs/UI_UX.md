@@ -119,6 +119,6 @@ Prototipo UI v0.0.2 (sin necesidad de construir todo el RPG):
 
 ## 10. Pendiente de diseño
 
-Próximo bloque: taxonomía de cartas (viaje, exploración, diálogo, combate, comercio, botín, eventos), encadenamiento de situaciones y decisiones, cómo se elige destino, cómo se presenta una respuesta y qué ocurre entre cartas. Después: personaje/atributos, combate, equipo/inventario, economía, NPC, mapa, tiempo, mazmorras, multiplayer, administración y contenido. Establecer requisitos, ejemplos, invariantes, preguntas abiertas y pruebas para cada bloque. No convertir ejemplos ficticios de cartas o nombres en lore definitivo. No implementar todas las pantallas de golpe.
+El bloque de cartas se desarrolla en [CARDS.md](CARDS.md): cuatro familias base acordadas (localización, NPC, enemigo/combate por turnos y objeto), transiciones dependientes del mundo y propuestas de presentación. Próximo bloque: mundo, ubicaciones, navegación y viajes. Después: personaje/atributos, combate, equipo/inventario, economía, NPC, mapa, tiempo, mazmorras, multiplayer, administración y contenido. Establecer requisitos, ejemplos, invariantes, preguntas abiertas y pruebas para cada bloque. No convertir ejemplos ficticios de cartas o nombres en lore definitivo. No implementar todas las pantallas de golpe.
 
 Ver GDD.md, GAME_RULES.md, ARCHITECTURE.md, MULTIPLAYER.md, BRAND.md y DECISIONS.md.

@@ -16,6 +16,7 @@ An expandable, card-driven, open-world multiplayer RPG with persistent worlds, p
 ## Documentación
 - [GDD — informe maestro original](docs/GDD.md)
 - [UI/UX — requisitos y diseño de interfaces](docs/UI_UX.md)
+- [Cartas y decisiones — cuatro familias y transiciones](docs/CARDS.md)
 - [Arquitectura](docs/ARCHITECTURE.md) · [Reglas](docs/GAME_RULES.md) · [Datos](docs/DATABASE.md)
 - [Multijugador](docs/MULTIPLAYER.md) · [Administración](docs/ADMIN.md)
 - [SCE y su integración](packages/swipe/README.md) · [Identidad](docs/BRAND.md)

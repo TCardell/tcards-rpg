@@ -14,6 +14,11 @@
 | ADR-010 | Acordada | Menú con mochila, mapa y ajustes; consultar no consume ni regenera carta; conservar al recargar salvo cambio legítimo de servidor |
 | ADR-011 | Acordada | PC mantiene carta central con paisaje contextual y permite manipular mochila/menú lateralmente; mismas reglas que móvil |
 | ADR-012 | Propuesta | Paneles plegables, HUD mínimo, escenas versionadas con variantes ambientales y apartados adicionales; detalles sujetos a pruebas |
+| ADR-013 | Acordada | Cartas representan situaciones del mundo dinámicas, dependientes de decisiones y contexto; no baraja predefinida universal |
+| ADR-014 | Acordada | Cuatro familias base: localización con rutas, NPC con diálogo encadenado, enemigo con vida/ataque/defensa y combate por turnos, objeto encontrado con recoger/dejar |
+| ADR-015 | Propuesta | Grafo de localizaciones y diálogos, contextos de retorno, ofertas de loot, separación de actionId semántico y gesto, tipos complementarios sujetos a diseño |
+
+ADR-013 a ADR-015: 2026-11-26. Detalles, alternativas, ejemplos y criterios de aceptación en [CARDS.md](CARDS.md). Probar revisita y elección de otra ruta, diálogo ramificado, varios turnos de un enemigo, recoger/dejar y persistencia sin regeneración.
 
 ADR-009 a ADR-012: 2026-11-26. Requisitos, alternativas, consecuencias y criterios de aceptación en [UI_UX.md](UI_UX.md). Probar dos tamaños de viewport, navegación, gestos, persistencia de carta y ausencia de efectos no autorizados.
 

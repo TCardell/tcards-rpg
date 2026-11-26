@@ -7,3 +7,5 @@ Después: mochila/equipamiento/loot, oro/tiendas, mapa y región piloto, NPC, ho
 Ideas no comprometidas: reputación, facciones, profesiones, comercio entre jugadores, crónicas, rumores, mascotas, legado, eventos de mundo, expediciones semanales, PWA, director de juego, traducciones, herramientas de creación, mundos más grandes.
 
 Riesgos: pausas/cuotas de servicios gratuitos, permisos RLS, duplicación de objetos, datos corruptos, semilla no reproducible, desincronización, crecimiento de contenido, incompatibilidad de migraciones, dependencia de proveedor, mantenimiento de IA. GDD contiene registro detallado; cada hito debe elegir pruebas y mitigaciones.
+
+Diseño pendiente prioritario: WORLD.md (grafo y libertad de navegación, retorno, viaje, mapa y encuentros), después CHARACTERS/COMBAT, NPC, INVENTORY/LOOT, ECONOMY y DUNGEONS. CARDS.md establece familias y lista preguntas abiertas. Definir distribución de objetos, persistencia al dejar botín y reglas de combate antes de implementarlas.

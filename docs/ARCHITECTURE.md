@@ -29,3 +29,6 @@ Ver docs/MULTIPLAYER.md, docs/DATABASE.md y docs/ADMIN.md. Registrar elecciones 
 
 ## Interfaz adaptativa
 Ver [UI_UX.md](UI_UX.md). Un único modelo de dominio y contrato de comandos alimenta los layouts móvil y escritorio. Mantener el estado UI (menús, arrastre, animación y preferencias) separado de snapshots confirmados. La carta activa es una instancia persistente, no una posición de un mazo del cliente. El paisaje contextual es una capa de presentación independiente de la ilustración puntual de la carta. Los paneles laterales consumen los mismos contratos de inventario/mapa que el menú móvil; no alteran reglas. Los detalles de vistas y manifiesto ambiental están por diseñar.
+
+## Resolución de situaciones
+Ver [CARDS.md](CARDS.md). El motor construye una vista de carta a partir de entidades y estado del mundo; distinguir definiciones de contenido, entidades runtime, instancia de carta y comandos. Como propuesta, separar ID semántico de acción de slot de gesto, usar contextos de exploración/diálogo/combate/loot y guardar efectos + transición de carta de forma atómica. No exponer cartas futuras, semillas o resultados privados. Las cuatro familias comparten el mismo contrato de interacción; el esquema concreto aún no está aprobado.

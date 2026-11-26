@@ -4,6 +4,8 @@
 Explorar → encuentro/diálogo/combate → resolver → botín/experiencia → equipar/vender/descansar → explorar. Mundo conectado mediante grafo; cada ubicación tiene cartas y NPC. Viaje y exploración no obligan a participar en una mazmorra. No se penaliza desconexión ordinaria.
 
 ## Cartas
+Ver [CARDS.md](CARDS.md). Cuatro familias acordadas: localizaciones con destinos, NPC con conversaciones de varias cartas, enemigos con vida/ataque/defensa y combate por turnos, objetos encontrados con recoger/dejar. La carta surge del contexto y de las decisiones, no de una baraja universal. Los detalles de reglas y transiciones se desarrollarán por subsistema.
+
 Seis acciones contextuales, con opciones visibles antes de confirmar: farLeft, left, up, right, farRight, down. No toda carta requiere seis. Intensidad es horizontal; vertical independiente. La carta pendiente existe en estado del juego, con instancia estable. Abrir inventario, mapa, social o personaje no altera la instancia ni consume turno. Equipar/consumir en combate puede ser un comando que cueste turno según reglas explícitas. Evitar dobles envíos; el cliente conserva una decisión pendiente hasta respuesta.
 
 ## RPG
