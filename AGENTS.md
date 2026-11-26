@@ -1,12 +1,13 @@
 # AGENTS.md — TCards RPG
 
 ## Antes de cambiar código
-Lee README, docs/GDD.md, docs/ARCHITECTURE.md, ROADMAP.md y los documentos del subsistema que vas a tocar. El GDD es la visión inicial; las decisiones aprobadas posteriores deben registrarse en docs/DECISIONS.md. No supongas que una propuesta es una funcionalidad existente.
+Lee README, docs/GDD.md, docs/ARCHITECTURE.md, docs/UI_UX.md, ROADMAP.md y los documentos del subsistema que vas a tocar. El GDD es la visión inicial; las decisiones aprobadas posteriores deben registrarse en docs/DECISIONS.md. No supongas que una propuesta es una funcionalidad existente.
 
 ## Límites del trabajo
 - Trabaja por hitos pequeños; no implementes todo el GDD en una sola tarea. Rama y PR por cambio relevante; no hagas force-push ni despliegues producción sin autorización.
 - No modifiques TC-HQ ni Type/16. SCE se ha copiado de forma independiente. Lee su AGENTS.md y API.md antes de adaptarlo; conserva el baseline y añade un adaptador en packages/swipe/ antes de alterar internamente SCE.
 - Conserva las seis acciones: farLeft, left, up, right, farRight, down. Botones equivalentes, teclado, ratón, touch, cancelación, feedback opuesto, reduced-motion. La mochila/mapa no consumen ni regeneran la carta pendiente.
+- Respeta los requisitos de UI_UX.md: mobile-first, montón visual de cartas y revelación central, menú con mochila/mapa/ajustes, escritorio con paisaje contextual y panel lateral manipulable. No conviertas propuestas visuales o ejemplos en requisitos definitivos. Mantén equivalencia de reglas móvil/PC y prueba cambios de layout sin consumir carta.
 - Separa DOM/animaciones, motor puro, persistencia, contenido y red. La UI nunca decide recompensas, oro, RNG o permisos online. No reutilices el modelo de cuestionario como autoridad de RPG.
 - Toda acción online debe ser autenticada, autorizada, validada, idempotente y transaccional, con revisión esperada y estado confirmado; no confiar en datos del cliente.
 - No incluyas service_role, DB passwords, access tokens, credenciales, datos reales o backups en Git, logs o bundles. No desactives RLS. No ejecutes migraciones destructivas en producción sin copia y aprobación. No publiques ni cambies visibilidad del repositorio por iniciativa propia.

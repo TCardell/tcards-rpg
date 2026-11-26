@@ -26,3 +26,6 @@ Node/TypeScript, npm al principio; evaluar Vite cuando exista cliente real. No f
 Versionar schema, ruleset, content y generator. Una expedición activa fija las versiones con las que empezó. Mantener compatibilidad frontend/API durante despliegues; backup verificado antes de migrar; restauración probada. No hay jobs perpetuos: eventos calculados por fechas y tareas programadas cuando necesarias. Los límites gratuitos cambian; comprobar cuotas antes de desplegar.
 
 Ver docs/MULTIPLAYER.md, docs/DATABASE.md y docs/ADMIN.md. Registrar elecciones definitivas en docs/DECISIONS.md.
+
+## Interfaz adaptativa
+Ver [UI_UX.md](UI_UX.md). Un único modelo de dominio y contrato de comandos alimenta los layouts móvil y escritorio. Mantener el estado UI (menús, arrastre, animación y preferencias) separado de snapshots confirmados. La carta activa es una instancia persistente, no una posición de un mazo del cliente. El paisaje contextual es una capa de presentación independiente de la ilustración puntual de la carta. Los paneles laterales consumen los mismos contratos de inventario/mapa que el menú móvil; no alteran reglas. Los detalles de vistas y manifiesto ambiental están por diseñar.
