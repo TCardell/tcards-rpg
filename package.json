@@ -7,8 +7,12 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "npm run test:sce",
-    "test:sce": "node packages/swipe/sce/tests/model.test.cjs && node packages/swipe/sce/tests/player-feedback.test.cjs"
+    "test": "npm run test:sce && node --experimental-strip-types --test tests/world.test.mjs",
+    "test:sce": "node packages/swipe/sce/tests/model.test.cjs && node packages/swipe/sce/tests/player-feedback.test.cjs",
+    "dev": "vite",
+    "build": "npm run typecheck && vite build",
+    "typecheck": "tsc",
+    "test:browser": "playwright test"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.119.2"

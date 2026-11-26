@@ -25,3 +25,5 @@ Añadir por checkpoint: fecha, cambios, commit/rama, decisiones provisionales, p
 
 ### 26 de noviembre · rama feature/first-playable
 Base deeb4f3. npm test pasó en la copia original. Demo SCE ejecutada en Chromium por HTTP. Se verificó la referencia Supabase y el esquema público vacío; el propietario autorizó escritura aditiva y datos ficticios solo en ese proyecto. En curso región declarativa, reglas TypeScript y shell SCE. Pendiente comprobar navegador, SQL y Admin.
+
+Adaptador independiente con gestures.bind, responseLayout y Player.preview originales; presentación con nueve ilustraciones SVG propias. Migraciones locales preparadas para membresías, personajes, expediciones, recibos, señales y compensación. Aún sin aplicar en remoto. Autorización recibida en este chat el 26 de noviembre.

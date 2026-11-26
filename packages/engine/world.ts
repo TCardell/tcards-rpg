@@ -11,7 +11,7 @@ type Change = {to:string; when?:Conditions; set?:Partial<Values>; add?:Partial<V
 export type Choice = Change & {slot:Slot; id:string; label:string};
 type Card = {kind:'place'|'npc'|'enemy'|'item'; title:string; body:string; art:string; actions:Choice[]};
 type Region = {version:number; initial:State; cards:Record<string,Card>; bag:Choice[]; after:(Change & {node:string})[]};
-export const region = source as Region;
+export const region = source as unknown as Region;
 export type ActionIntent = {commandId:string; scopeId:string; expectedRevision:number; cardInstanceId:string; actionId:string};
 export type GameSnapshot = {version:1; id:string; revision:number; cardInstanceId:string; state:State; note:string};
 
