@@ -3,7 +3,7 @@
 | ID | Estado | Decisión |
 |---|---|---|
 | ADR-001 | Acordada | Repositorio independiente tcards-rpg, marca TCards RPG |
-| ADR-002 | Acordada | SCE v0.2.0 como base de interacción, copia sin modificar original |
+| ADR-002 | Acordada | SCE v0.2.0 como base gráfica y referencia principal de interacción, reutilización fiel y copia original intacta; motor RPG independiente |
 | ADR-003 | Acordada | Mundo abierto persistente, multijugador opcional, loot y mochila separada, expansiones |
 | ADR-004 | Propuesta | TypeScript para reglas y contratos nuevos; JS original de SCE conservado |
 | ADR-005 | Acordada en parte | Supabase como backend dev (proyecto TCards RPG creado); Cloudflare Pages aún propuesta; coste inicial 0 sujeto a cuotas |
@@ -38,6 +38,15 @@
 | ADR-034 | Acordada | Buzones y correspondencia persistente con jugadores y NPC |
 | ADR-035 | Acordada | Un único mundo inicial; narrativa propia de cada mundo; fantasía medieval clásica con oscuridad y misterio; generación/configuración de nuevos mundos pendiente |
 | ADR-036 | Propuesta | Tablones sociales, crónicas y récords, chats, editor de rutinas e informe de retorno, detalles de liquidación idempotente y límites AFK |
+| ADR-037 | Acordada | Admin: web unificada y elegante para inspeccionar, gestionar, cambiar y restaurar juego; desarrollo incremental, acciones seguras y auditadas |
+| ADR-038 | Propuesta | Studio: edición declarativa de contenido; JSON validado primero, UI y Asset Factory graduales |
+| ADR-039 | Propuesta | Prólogo El viajero sin destino en Valbruma, tutorial narrativo opcional/saltable, región piloto pequeña; nombres y recompensas provisionales |
+| ADR-040 | Acordada | Español único inicial en juego, Admin, Studio y documentación; inglés futuro posible sin i18n completo ni selector ahora |
+| ADR-041 | Acordada | Fantasía medieval elegante, oscura, minimalista e inspirada en Regicide; cartas protagonistas, temas personalizables, presentación separada de reglas |
+| ADR-042 | Propuesta | Arte IA reutilizable, hojas/lotes recortables cuando proceda, catálogo y placeholders primero, pipeline gradual sin proveedor obligatorio |
+| ADR-043 | Acordada | SCE como inspiración gráfica principal y base real de adaptación: seis gestos, fila espacial, feedback exacto y sello opuesto; no motor de cuestionario como autoridad |
+
+ADR-037 a ADR-043: 2026-11-26. Ver ADMIN, STUDIO, TUTORIAL, LANGUAGE, ART_DIRECTION, ASSET_PIPELINE, DESIGN_OVERVIEW, FIRST_TASK y packages/swipe/README. El GDD es histórico; ante discrepancia rige decisión posterior. Paletas, nombres, cifras, estilo final, herramientas y mecánicas concretas no cerradas.
 
 ADR-025 a ADR-036: 2026-11-26. Ver PROGRESSION, OFFLINE_ROUTINES, NPC, QUESTS, LOOT, ECONOMY, SOCIAL, MAIL, CHARACTERS, INVENTORY, HOUSING y WORLD. No fijar números, fórmulas, penalizaciones hardcore offline ni catálogo de contenido sin diseño y pruebas.
 

@@ -19,3 +19,6 @@ Fórmulas, atributos/clases concretos, escala de nivel, penalización y rescate,
 
 ## Social y mundo inicial
 Un mundo inicial de fantasía medieval clásica, oscura y misteriosa; narrativa independiente por mundo. Viajes ágiles con animación. Puntos de encuentro para observar/buscar amigos, comercio e invitaciones consentidos, grupos libres o unidos. Ver WORLD, SOCIAL, MAIL, PROGRESSION, NPC, QUESTS, LOOT y ECONOMY.
+
+## Identidad y primer recorrido
+Español único inicial; dirección elegante y minimalista inspirada en Regicide, SCE como base gráfica e interacción principal. Ver ART_DIRECTION, LANGUAGE y TUTORIAL (prólogo candidato, sin lore cerrado). Admin inspecciona y repara con permisos y auditoría; no confundir corrección administrativa con reglas normales de muerte. El diseño vigente se resume en DESIGN_OVERVIEW.

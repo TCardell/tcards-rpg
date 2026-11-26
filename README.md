@@ -1,14 +1,14 @@
 # TCards RPG
 
-> One world. Countless destinies.
+> Un mundo. Innumerables destinos.
 
-An expandable, card-driven, open-world multiplayer RPG with persistent worlds, procedural adventures and a modular game engine.
+RPG web de mundo abierto, multijugador opcional, cartas dinámicas, mundos persistentes y aventuras procedurales.
 
 **Estado:** v0.0.1 — cimientos del proyecto (pre-alfa). No es todavía un videojuego jugable ni hay un servidor desplegado.
 
 ## Visión
 - Mundo abierto de fantasía con viajes, NPC, poblados, tabernas, hostales, comercios, iglesias, castillos y mazmorras.
-- Seis gestos contextuales de cartas, con mochila, equipo, mapa y personaje en secciones separadas.
+- SCE v0.2.0 como base gráfica y referencia principal de interacción: seis gestos contextuales de cartas, con mochila, equipo, mapa y personaje en secciones separadas.
 - Personajes persistentes; juego individual y mundos privados con amigos, expediciones cooperativas, competitivas y cooperativas con duelo final.
 - Mundos independientes y jerárquicos, reloj real compartido con alternativas nocturnas, varios personajes por cuenta y clases flexibles.
 - Personajes libres y hardcore (rescate, muerte permanente y lápidas), propiedades físicas personalizables, mochila por espacios y almacén.
@@ -16,10 +16,13 @@ An expandable, card-driven, open-world multiplayer RPG with persistent worlds, p
 - Rutinas offline calculadas al regresar, trabajo AFK equilibrado, descanso, correspondencia y puntos de encuentro sociales.
 - Loot accesible, monedas de oro, mochilas ampliables y almacenes domésticos de gran capacidad; escalado sutil en algunas mazmorras.
 - Un único mundo inicial de fantasía medieval clásica con oscuridad y misterio, arquitectura preparada para más mundos con narrativa propia.
-- TCards RPG Engine (reglas), Studio (contenido), Admin (operación) y Realms (mundos online).
+- Estética medieval elegante y minimalista inspirada en Regicide, temas personalizables y español único inicial.
+- TCards RPG Engine (reglas), Studio (contenido), Admin (centro de control, reparación y restauración incremental) y Realms (mundos online).
 
 ## Documentación
-- [GDD — informe maestro original](docs/GDD.md)
+- **[Diseño vigente — empezar aquí](docs/DESIGN_OVERVIEW.md)** · [Decisiones](docs/DECISIONS.md) · [GDD histórico](docs/GDD.md)
+- [Dirección artística](docs/ART_DIRECTION.md) · [Idioma](docs/LANGUAGE.md) · [Ilustraciones](docs/ASSET_PIPELINE.md)
+- [Tutorial y región inicial](docs/TUTORIAL.md) · [Studio](docs/STUDIO.md)
 - [UI/UX — requisitos y diseño de interfaces](docs/UI_UX.md)
 - [Cartas y decisiones — cuatro familias y transiciones](docs/CARDS.md)
 - [Mundo y navegación](docs/WORLD.md) · [Tiempo real y horarios](docs/WORLD_EVENTS.md)
@@ -32,6 +35,9 @@ An expandable, card-driven, open-world multiplayer RPG with persistent worlds, p
 - [SCE y su integración](packages/swipe/README.md) · [Identidad](docs/BRAND.md)
 - [Hoja de ruta](ROADMAP.md) · [Backlog](docs/BACKLOG.md) · [Instrucciones para agentes](AGENTS.md)
 - [Primer encargo para Codex](docs/FIRST_TASK.md)
+
+## Base gráfica SCE (referencia principal)
+No sustituir SCE por un swipe genérico: reutilizar su disposición espacial, gestos, transición, feedback de botón/banner/sello opuesto y cancelación. Adaptar al estado RPG sin reutilizar su motor de cuestionario como autoridad. Ver [integración SCE](packages/swipe/README.md) y [primer encargo](docs/FIRST_TASK.md).
 
 ## Probar la base SCE
 La copia original de SCE v0.2.0 está en `packages/swipe/sce/`, incluida su demo. Con Node.js 22+ (recomendación de desarrollo), ejecutar desde la raíz:

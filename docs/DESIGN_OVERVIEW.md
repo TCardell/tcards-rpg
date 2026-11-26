@@ -1,0 +1,20 @@
+# TCards RPG — diseño vigente
+
+Cierre de primera fase conceptual, 2026-11-26. No es software jugable. Leer DECISIONS.md para distinguir acuerdos de propuestas; GDD.md es histórico y queda íntegro. Ante discrepancias prevalecen las decisiones posteriores explícitas.
+
+## Experiencia
+RPG web de mundo abierto persistente, individual o multijugador entre amigos, cartas dinámicas como interfaz de situaciones (no mazo coleccionable). SCE v0.2.0 es la base gráfica y referencia principal de interacción: reutilizar gestos, disposición de botones, feedback y animaciones, con motor RPG independiente. Móvil primero; PC con carta central, paisajes contextuales y paneles laterales de menú/mochila. Estética medieval elegante, oscura y minimalista inspirada en Regicide; temas personalizables. Español único inicial, traducción futura posible. Ver UI_UX, CARDS, ART_DIRECTION, LANGUAGE y packages/swipe/README.
+
+## Mundo y personajes
+Un mundo inicial, arquitectura extensible a mundos aislados con narrativa propia. Grafo jerárquico de continentes, regiones, ciudades, calles, edificios, habitaciones, rutas, cuevas y otros lugares. Reloj real compartido, alternativas nocturnas y viajes ágiles. Varios personajes por cuenta, razas/clases clásicas flexibles, especialización híbrida y estadísticas simples; progresión por uso, hitos, tareas, entrenamiento, misiones y objetos, no reparto de puntos. Libre y hardcore; rescate, reaparición de libre, muerte definitiva hardcore y lápidas con estadísticas. Ver WORLD, WORLD_EVENTS, CHARACTERS y PROGRESSION.
+
+## Aventura y vida cotidiana
+Combate por turnos inspirado en Regicide; fórmulas pendientes. Mazmorras individuales, cooperativas, competitivas PvP/PvPvE y cooperativas con duelo final, generación procedural y ajuste sutil en algunas. Loot frecuente, rarezas clásicas, oro, mochila portátil por espacios ampliable sin peso/desgaste inicial. Bases físicas comprables o creables, visitables y personalizables, almacenes ampliables de gran capacidad. NPC con memoria sencilla, misiones diversas sin historia obligatoria, correspondencia, amigos y grupos; observar/buscar en puntos de encuentro, intercambio y duelos consentidos. Ausencia breve conserva ubicación y riesgo, derrota offline menos penalizada; retorno tras ausencia larga, rutinas personalizables liquidadas al regresar, trabajo AFK menos rentable que aventura, descanso y energía. Hardcore offline pendiente. Ver COMBAT, DUNGEONS, INVENTORY, LOOT, ECONOMY, HOUSING, NPC, QUESTS, SOCIAL, MAIL, OFFLINE_ROUTINES y MULTIPLAYER.
+
+## Herramientas y entrega
+Admin: web unificada, visual y segura con inspección, edición controlada, recuperación y auditoría; crecer en paralelo a sistemas online. Studio: contenido declarativo validado primero, UI gradual. Arte IA reutilizable, lotes cuando convenga, placeholders para empezar. Ver ADMIN, STUDIO, ASSET_PIPELINE. Propuesta de prólogo El viajero sin destino en Valbruma (TUTORIAL), objetivo progresivo, no requisito completo de v0.0.2.
+
+Leer AGENTS.md, FIRST_TASK.md y ROADMAP.md. Empezar por corte local mínimo de SCE adaptado al RPG, verificar navegador, después Auth/mundo/personaje, persistencia y cooperación con dos identidades. Incrementar contenido y Admin con subsistemas. Arquitectura y seguridad en ARCHITECTURE, DATABASE, MULTIPLAYER. Supabase dev existe, sin integración ni migraciones; no hay despliegue. No implementar todo en una versión.
+
+## Abierto
+Balance de combate/progresión, catálogo de razas/clases/items, penalizaciones y rescate (hardcore offline incluido), salarios/tiempos y economía, permisos y grupos, capacidad de mochilas/propiedades, lore definitivo, generación de mundos futuros, estética y assets finales, diseño detallado de Studio. Profesiones completas, fabricación, gremios y propiedad colectiva no comprometidos. Registrar decisiones nuevas y verificar por pruebas antes de fijar números.
