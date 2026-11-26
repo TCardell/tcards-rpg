@@ -15,6 +15,7 @@ An expandable, card-driven, open-world multiplayer RPG with persistent worlds, p
 
 ## Documentación
 - [GDD — informe maestro original](docs/GDD.md)
+- [UI/UX — requisitos y diseño de interfaces](docs/UI_UX.md)
 - [Arquitectura](docs/ARCHITECTURE.md) · [Reglas](docs/GAME_RULES.md) · [Datos](docs/DATABASE.md)
 - [Multijugador](docs/MULTIPLAYER.md) · [Administración](docs/ADMIN.md)
 - [SCE y su integración](packages/swipe/README.md) · [Identidad](docs/BRAND.md)
@@ -29,6 +30,6 @@ npm test
 No hay dependencias que instalar para estas pruebas. Para probar la demo en navegador, abrir `packages/swipe/sce/index.html` o servir la raíz mediante `python -m http.server 8000` y navegar a esa ruta. No es una demo del RPG. El servidor HTTP local no es el backend multijugador.
 
 ## Infraestructura prevista
-GitHub para código; Supabase para Auth, PostgreSQL, funciones y Realtime; Cloudflare Pages como candidato a alojamiento del cliente. El objetivo inicial es una alfa pequeña y gratuita, sujeto a cuotas y pruebas. Ningún servicio está conectado todavía. Los secretos no se guardan en Git.
+GitHub para código; Supabase para Auth, PostgreSQL, funciones y Realtime; Cloudflare Pages como candidato a alojamiento del cliente. El objetivo inicial es una alfa pequeña y gratuita, sujeto a cuotas y pruebas. Existe un proyecto de desarrollo Supabase llamado TCards RPG, cuyo estado activo y conexión de consulta se comprobaron el 26 de noviembre de 2026; no se ha integrado todavía en el código ni aplicado migraciones. Cloudflare no está configurado. Los secretos no se guardan en Git.
 
 No se concede una licencia de código abierto en este repositorio por el mero hecho de ser público.
