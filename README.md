@@ -10,13 +10,18 @@ An expandable, card-driven, open-world multiplayer RPG with persistent worlds, p
 - Mundo abierto de fantasía con viajes, NPC, poblados, tabernas, hostales, comercios, iglesias, castillos y mazmorras.
 - Seis gestos contextuales de cartas, con mochila, equipo, mapa y personaje en secciones separadas.
 - Personajes persistentes; juego individual y mundos privados con amigos, expediciones cooperativas, competitivas y cooperativas con duelo final.
-- Loot accesible, economía sencilla, generación procedural reproducible y expansiones compatibles.
+- Mundos independientes y jerárquicos, reloj real compartido con alternativas nocturnas, varios personajes por cuenta y clases flexibles.
+- Personajes libres y hardcore (rescate, muerte permanente y lápidas), propiedades físicas personalizables, mochila por espacios y almacén.
+- Loot accesible, economía sencilla, generación procedural reproducible, escalado sutil en algunas mazmorras y expansiones compatibles.
 - TCards RPG Engine (reglas), Studio (contenido), Admin (operación) y Realms (mundos online).
 
 ## Documentación
 - [GDD — informe maestro original](docs/GDD.md)
 - [UI/UX — requisitos y diseño de interfaces](docs/UI_UX.md)
 - [Cartas y decisiones — cuatro familias y transiciones](docs/CARDS.md)
+- [Mundo y navegación](docs/WORLD.md) · [Tiempo real y horarios](docs/WORLD_EVENTS.md)
+- [Personajes, clases y derrota](docs/CHARACTERS.md) · [Combate](docs/COMBAT.md)
+- [Mochila y equipamiento](docs/INVENTORY.md) · [Propiedades y bases](docs/HOUSING.md) · [Mazmorras y dificultad](docs/DUNGEONS.md)
 - [Arquitectura](docs/ARCHITECTURE.md) · [Reglas](docs/GAME_RULES.md) · [Datos](docs/DATABASE.md)
 - [Multijugador](docs/MULTIPLAYER.md) · [Administración](docs/ADMIN.md)
 - [SCE y su integración](packages/swipe/README.md) · [Identidad](docs/BRAND.md)

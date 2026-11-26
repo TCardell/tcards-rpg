@@ -12,3 +12,6 @@ Realtime es aviso, no fuente de verdad. Descartar avisos viejos, detectar saltos
 
 ## Puerta de aceptación
 Dos identidades distintas, dos navegadores/dispositivos, crear mundo por invitación, resolver un turno conjunto, recargar ambos, repetir una petición, rechazar acciones de terceros y fuera de turno, comprobar recompensas sin duplicar. No anunciar tiempo real funcional hasta superar pruebas. Medir latencia y cuotas; los límites de Supabase no equivalen a capacidad real de jugadores.
+
+## Mundo y modalidades
+Mundos independientes con reloj real común; no confundir servidor lógico con una máquina. Aislar estado y membresía por mundo. Una cuenta puede tener varios personajes; autorizar personaje seleccionado y participación en cada comando. Personaje libre y hardcore conservan sus reglas de muerte; rescate cooperativo antes de resolución definitiva y lápida de hardcore. Grupos mixtos y reglas de plazos/rescate pendientes. Expediciones rápidas con amigos, adaptación sutil de algunos bosses/mazmorras; no recalcular a cada turno. Visitar propiedades ajenas no concede acceso a sus bienes. Ver WORLD, WORLD_EVENTS, CHARACTERS, COMBAT, DUNGEONS y HOUSING. No confundir reloj real con combate de acción continua.

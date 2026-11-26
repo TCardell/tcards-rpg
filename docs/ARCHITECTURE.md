@@ -32,3 +32,6 @@ Ver [UI_UX.md](UI_UX.md). Un único modelo de dominio y contrato de comandos ali
 
 ## Resolución de situaciones
 Ver [CARDS.md](CARDS.md). El motor construye una vista de carta a partir de entidades y estado del mundo; distinguir definiciones de contenido, entidades runtime, instancia de carta y comandos. Como propuesta, separar ID semántico de acción de slot de gesto, usar contextos de exploración/diálogo/combate/loot y guardar efectos + transición de carta de forma atómica. No exponer cartas futuras, semillas o resultados privados. Las cuatro familias comparten el mismo contrato de interacción; el esquema concreto aún no está aprobado.
+
+## Mundo persistente y subsistemas
+Requisitos en WORLD, WORLD_EVENTS, CHARACTERS, COMBAT, INVENTORY, HOUSING y DUNGEONS. Separar identidad Auth, personaje y mundo lógico; catálogo de contenido compartible y estado aislado. Grafo jerárquico extensible con bases físicas. Reloj autoritativo real distinto de turnos; calcular horarios/recuperación desde timestamps, mantener alternativas de servicio. Propuestas: máquina de estados de derrota con memorial único, permisos de propiedad independientes de almacén, transferencias atómicas, perfil de dificultad acotado y fijado por expedición. No generar migraciones ni ampliar el primer prototipo por estas especificaciones. Fórmulas y contratos finales pendientes.
