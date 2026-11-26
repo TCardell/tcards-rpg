@@ -10,9 +10,9 @@ El tiempo del mundo avanza sincronizado con un reloj real, independientemente de
 ## Propuestas
 - Fuente autoritativa UTC del servidor; configurar zona/representación horaria del mundo común a todos, no usar reloj local del cliente como autoridad. Relación 1:1 con tiempo real; zona exacta, calendario ficticio, horario de verano y definición de amanecer/anochecer por decidir.
 - Horarios declarativos y variantes día/noche de NPC/servicios y paisajes; comprobar cobertura de servicios esenciales por franjas y acceso geográfico razonable.
-- Calcular estado de horario y recuperación a partir de timestamps al consultar o actuar; programar tareas solo si necesarias. No simular cada segundo ni mantener proceso constante. Eventos offline según reglas, sin penalizar automáticamente al ausente.
+- Calcular estado de horario y recuperación a partir de timestamps al consultar o actuar; programar tareas solo si necesarias. No simular cada segundo ni mantener proceso constante. Eventos offline según OFFLINE_ROUTINES.md: riesgo en zonas peligrosas tras desconexión, penalización reducida, retorno a casa y rutinas liquidadas al regresar. No simulación continua ni inmunidad automática.
 - Validar acciones según situación actual; si una tienda cambia de horario con carta pendiente, conservar la instancia hasta actualización legítima, explicar cambio y ofrecer alternativa, no cambiar resultado silenciosamente.
-- Clima, festividades, rotación de comercios y eventos globales/locales son ideas, no compromiso cerrado. No fijar duración de descansos, viaje o plazos de turnos todavía.
+- Clima, festividades, rotación de comercios y eventos globales/locales son ideas, no compromiso cerrado. No fijar duración de descansos, umbrales de ausencia o plazos de turnos todavía; viajes ágiles acordados.
 
 ## Aceptación futura
 Dos clientes de zonas horarias diferentes ven la misma hora de mundo. Reabrir al día siguiente no congela el reloj. Alterar reloj del dispositivo no adelanta recuperación ni cambia permisos. Probar acceso a servicios esenciales de noche y de día, cambio de turno de NPC y cambio de horario con carta abierta. No confundir hora real con necesidad de que el jugador responda en segundos.

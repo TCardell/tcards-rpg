@@ -3,7 +3,7 @@
 Estado: requisito acordado; detalles pendientes, 2026-11-26.
 
 ## Acordado
-Los personajes pueden crear/construir o comprar una base propia personalizable: choza, casa, castillo, piso franco en ciudad u otras propiedades. Es un lugar físico visitable dentro del mundo, no solo una pantalla de inventario. Otros usuarios pueden visitar la propiedad conforme a permisos que habrá que definir. El personaje puede almacenar allí su loot. La base sirve de referencia para reaparición de personajes persistentes tras derrota; ver CHARACTERS.md.
+Los personajes pueden crear/construir o comprar una base propia personalizable: choza, casa, castillo, piso franco en ciudad u otras propiedades. Es un lugar físico visitable dentro del mundo, no solo una pantalla de inventario. Otros usuarios pueden visitar la propiedad conforme a permisos que habrá que definir. El personaje puede almacenar allí su loot. Ampliar la base aumenta considerablemente la capacidad de baúles y almacenes, muy por encima de la mochila portátil. La base sirve de referencia para reaparición de personajes persistentes tras derrota, retorno automático tras ausencia prolongada y descanso de rutina; ver CHARACTERS.md.
 
 ## Propuesta de experiencia
 Comprar o crear la propiedad en una localización válida; navegar por el mundo hasta ella y entrar; ver carta de la propiedad y opciones para visitar habitaciones, gestionar almacén y personalizar. Ejemplos adicionales: granja, torre, refugio. Personalización inicial mediante estilos, muebles, habitaciones y mejoras seleccionables por cartas; no exigir editor 3D. Posibles funciones: descanso/recuperación, armería, sala de trofeos, taller futuro, visitas. No convertirlas todas en requisitos de primera versión.

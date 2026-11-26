@@ -12,7 +12,10 @@ An expandable, card-driven, open-world multiplayer RPG with persistent worlds, p
 - Personajes persistentes; juego individual y mundos privados con amigos, expediciones cooperativas, competitivas y cooperativas con duelo final.
 - Mundos independientes y jerárquicos, reloj real compartido con alternativas nocturnas, varios personajes por cuenta y clases flexibles.
 - Personajes libres y hardcore (rescate, muerte permanente y lápidas), propiedades físicas personalizables, mochila por espacios y almacén.
-- Loot accesible, economía sencilla, generación procedural reproducible, escalado sutil en algunas mazmorras y expansiones compatibles.
+- Progresión por experiencia, práctica, hitos, entrenamiento, misiones y objetos; no reparto de puntos en árboles de habilidades.
+- Rutinas offline calculadas al regresar, trabajo AFK equilibrado, descanso, correspondencia y puntos de encuentro sociales.
+- Loot accesible, monedas de oro, mochilas ampliables y almacenes domésticos de gran capacidad; escalado sutil en algunas mazmorras.
+- Un único mundo inicial de fantasía medieval clásica con oscuridad y misterio, arquitectura preparada para más mundos con narrativa propia.
 - TCards RPG Engine (reglas), Studio (contenido), Admin (operación) y Realms (mundos online).
 
 ## Documentación
@@ -22,6 +25,8 @@ An expandable, card-driven, open-world multiplayer RPG with persistent worlds, p
 - [Mundo y navegación](docs/WORLD.md) · [Tiempo real y horarios](docs/WORLD_EVENTS.md)
 - [Personajes, clases y derrota](docs/CHARACTERS.md) · [Combate](docs/COMBAT.md)
 - [Mochila y equipamiento](docs/INVENTORY.md) · [Propiedades y bases](docs/HOUSING.md) · [Mazmorras y dificultad](docs/DUNGEONS.md)
+- [Progresión](docs/PROGRESSION.md) · [Rutinas y desconexión](docs/OFFLINE_ROUTINES.md) · [NPC](docs/NPC.md) · [Misiones](docs/QUESTS.md)
+- [Loot y rarezas](docs/LOOT.md) · [Economía](docs/ECONOMY.md) · [Interacción social](docs/SOCIAL.md) · [Correspondencia](docs/MAIL.md)
 - [Arquitectura](docs/ARCHITECTURE.md) · [Reglas](docs/GAME_RULES.md) · [Datos](docs/DATABASE.md)
 - [Multijugador](docs/MULTIPLAYER.md) · [Administración](docs/ADMIN.md)
 - [SCE y su integración](packages/swipe/README.md) · [Identidad](docs/BRAND.md)

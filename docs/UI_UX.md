@@ -91,9 +91,12 @@ La dirección artística (tarot editorial, cartografía, numismática, fantasía
 | Enciclopedia | Propuesto | Descubrimientos, criaturas y objetos |
 | Salir | Propuesto | Volver a portada/mundo sin perder progreso |
 
-Mochila: representar ítems, cantidades, detalles y acciones contextuales. En PC el jugador puede manipularla mientras ve la carta central; en móvil debe poder hacerlo en una vista propia. Cuadrícula/lista, slots, peso, arrastrar objetos, rarezas, comparar equipo y atajos están por decidir. No confundir ver con actuar: consultar no altera estado; equipar, consumir, vender o viajar pueden ser comandos autorizados con consecuencias, restricciones de combate o coste de turno. No aplicar efectos directamente desde la UI.
+Mochila: representar ítems, cantidades, detalles y acciones contextuales. En PC el jugador puede manipularla mientras ve la carta central; en móvil debe poder hacerlo en una vista propia. Cuadrícula/lista, número de slots, arrastrar objetos, comparar equipo y atajos están por decidir. Mochila por espacios ampliables, sin peso/desgaste inicial; rarezas clásicas. No confundir ver con actuar: consultar no altera estado; equipar, consumir, vender o viajar pueden ser comandos autorizados con consecuencias, restricciones de combate o coste de turno. No aplicar efectos directamente desde la UI.
 
 Ajustes candidatos: sonido/volumen, idioma ES/EN, sensibilidad, movimiento reducido, fondo, calidad gráfica. Guardar preferencias locales separadas del estado de partida. Definir accesibilidad y opciones definitivas antes de cierre de alfa.
+
+### Nuevas funciones acordadas
+Rutina diaria personalizable, buzón/correspondencia, consulta de habilidades aprendidas sin árbol de puntos, búsqueda de amigos en puntos físicos y viajes con animación breve. El editor de rutina, informe de retorno y ubicación exacta de accesos del menú son propuestas. Si la liquidación offline cambia la ubicación o situación, explicar antes de mostrar la nueva carta; no conservar una carta inválida. Leer mensajes/invitaciones no resuelve la carta. Ver OFFLINE_ROUTINES, PROGRESSION, SOCIAL y MAIL.
 
 ## 8. Persistencia, interacción y sincronización
 
