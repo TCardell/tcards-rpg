@@ -103,3 +103,6 @@ Rama alternativa: plaza → castillo → guardia → permiso denegado → volver
 ## 8. Próximos bloques de diseño
 
 Ya documentados [WORLD.md](WORLD.md), [WORLD_EVENTS.md](WORLD_EVENTS.md), [CHARACTERS.md](CHARACTERS.md), [COMBAT.md](COMBAT.md), [INVENTORY.md](INVENTORY.md), [HOUSING.md](HOUSING.md) y [DUNGEONS.md](DUNGEONS.md). Ver también NPC, LOOT, ECONOMY, QUESTS, PROGRESSION, OFFLINE_ROUTINES, SOCIAL y MAIL para los nuevos requisitos. Los puntos de encuentro permiten observar/buscar jugadores presentes y mostrar sus cartas; viaje rápido con animación breve. La liquidación de ausencia puede cambiar legítimamente la situación al regresar y debe explicar el resultado. Reglas específicas y fórmulas pendientes. Registrar decisiones explícitas sin convertir propuestas en requisitos. Mantener GDD original intacto.
+
+## Referencia gráfica y tutorial
+SCE v0.2.0 es base gráfica y referencia principal: disposición espacial, sello opuesto, banner fijo y feedback exacto durante arrastre/lanzamiento, cancelación y equivalencia teclado/botón. Ver packages/swipe/README.md y ART_DIRECTION.md. Carta en español inicialmente; arte reusable y temas no cambian decisiones. TUTORIAL.md propone recorrido narrativo usando cuatro familias, no set lineal ni requisito completo del primer hito.

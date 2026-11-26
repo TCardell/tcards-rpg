@@ -5,6 +5,7 @@
 - Especificación CARDS.md: cartas como situaciones dinámicas, cuatro familias acordadas, transiciones, ejemplos, contratos provisionales y criterios de aceptación.
 - Lote de diseño: mundos independientes y jerárquicos, reloj real y alternativas nocturnas, múltiples personajes y clases flexibles, derrota/rescate/hardcore/cementerio, combate, mochila por espacios, propiedades físicas y escalado sutil de algunas mazmorras. Siete nuevos documentos de diseño; propuestas y preguntas abiertas identificadas.
 - Lote de diseño: razas/clases clásicas, estadísticas de lápidas, expansión de mochila y base, rarezas y oro, interacción social y puntos de encuentro, progresión natural sin puntos, NPC/misiones, viaje rápido, ausencia y rutinas AFK retrospectivas, correspondencia y único mundo inicial con narrativa propia. Ocho nuevos documentos y referencias cruzadas actualizadas.
+- Cierre conceptual: índice de diseño vigente, Admin transversal y restauración, Studio gradual, prólogo candidato, dirección visual elegante/minimalista y personalizable, español único inicial, producción artística reutilizable y SCE como base gráfica principal. Primer encargo y roadmap alineados; sin ampliar v0.0.2.
 - Decisiones acordadas separadas de propuestas; instrucciones y primer encargo de Codex alineados.
 - Registro del proyecto Supabase de desarrollo creado y acceso de consulta verificado. Sin integración, cambios de esquema, código de gameplay ni nueva versión publicada.
 

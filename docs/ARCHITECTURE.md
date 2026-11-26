@@ -4,13 +4,13 @@ El GDD conserva el análisis completo. Este documento concreta el corte vertical
 
 ## Separación de capas
 - apps/game: shell responsive, mapa/mochila/personaje/social y adaptador de cartas.
-- packages/swipe: interfaz SCE, gestos y animaciones. No autoridad del juego.
+- packages/swipe: SCE v0.2.0 como base gráfica e interacción principal, adaptador de gestos, presentación y animaciones. No autoridad del juego.
 - packages/engine: reducer/reglas puras deterministas, sin DOM/red/DB.
 - packages/shared: tipos, contratos, validación de comandos y snapshots.
 - packages/generator: PRNG con semilla, grafos alcanzables, encuentros y botín con versiones fijadas.
 - content: definiciones versionadas de regiones, NPC, objetos, cartas, misiones y mazmorras.
 - supabase: migraciones SQL, RLS, RPC transaccionales y Edge Functions cuando aporten valor.
-- apps/studio y apps/admin: herramientas separadas de jugador, inicialmente reservadas.
+- apps/studio y apps/admin: herramientas separadas de jugador; Studio declarativo gradual, Admin crece en paralelo a hitos online con inspección y reparación segura.
 - assets: recursos con procedencia y licencia; no añadir datos personales.
 - tests: pruebas cross-module y multijugador.
 
@@ -38,3 +38,6 @@ Requisitos en WORLD, WORLD_EVENTS, CHARACTERS, COMBAT, INVENTORY, HOUSING y DUNG
 
 ## Progresión y tiempo diferido
 Ver PROGRESSION, OFFLINE_ROUTINES, SOCIAL y MAIL. Rutinas por personaje, versionadas, con frontera temporal liquidada; calcular intervalos de ausencia al regreso usando reloj autoritativo y aplicar efectos/recibo/snapshot atómicamente. No ejecutar simulación continua ni permitir dobles cobros; coordinar con expediciones y sesiones concurrentes. Presencia local y correo con autorización por mundo/personaje. Un solo mundo inicial, sin eliminar worldId del modelo. Catálogo de habilidades, reglas de avance, permisos de interacción y tratamiento hardcore offline pendientes.
+
+## Presentación, contenido y operación
+Ver ART_DIRECTION, LANGUAGE, ASSET_PIPELINE, STUDIO, ADMIN y TUTORIAL. Separar tokens de tema, ilustración, texto español, audio y animación de reglas y estado. Reutilizar SCE como base gráfica, preservar feedback/layout y baseline; adaptador emite intención sin mutar quiz. No duplicar reglas por tema/idioma. Contenido JSON validado primero; paquetes versionados después. Admin autorizado mediante servidor, cambios compensatorios auditados, restauración de entidad/global solo con pruebas y protección de estados relacionados. Prototipo local no requiere editor, Admin completo ni arte final.

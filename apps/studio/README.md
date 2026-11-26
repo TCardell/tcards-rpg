@@ -1,3 +1,3 @@
 # TCards RPG Studio
 
-Reservado para el editor de cartas, NPC, objetos, localizaciones y mazmorras. Validación y exportación de contenido versionado; no conectado a producción. La demo existente de SCE se conserva aparte.
+Herramienta independiente de creación de contenido. Empezar con JSON versionado y validadores; UI cuando aporte valor. Editores de lugares, NPC, objetos, enemigos, misiones, mazmorras y catálogo de assets. Ver [STUDIO](../../docs/STUDIO.md) y [ASSET_PIPELINE](../../docs/ASSET_PIPELINE.md). No conectado a producción; demo SCE aparte.

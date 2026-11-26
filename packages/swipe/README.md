@@ -12,3 +12,14 @@ Mantener baseline sin cambios para comparar; desarrollar adaptador separado aqu�
 SCE limita imágenes a rutas locales o data URLs; usar assets de confianza, no URLs arbitrarias. El estudio SCE es herramienta de referencia, no TCards RPG Studio definitivo.
 
 Pruebas: npm run test:sce desde raíz; checklist manual del README original. No hay aún adaptador implementado.
+
+## Fidelidad gráfica y de interacción (requisito)
+SCE v0.2.0 es **la base gráfica y referencia principal** de TCards RPG, no sugerencia de swipe genérico. Antes de diseñar shell, ejecutar demo y estudiar API, gestures.js, player.js y player.css. Reutilizar código de gesto/feedback/presentación cuando viable; justificar adaptación o reimplementación puntual. Copia original intacta; no tocar repo fuente. Diferenciar aspecto (tema, marco, arte, layout) de comportamiento. Regicide inspira estética minimalista y combate; SCE define interacción.
+
+- Fila espacial farLeft, left, up, right, farRight; down en barra inferior. Solo opciones habilitadas. Botones, teclado, ratón y touch equivalentes.
+- Intensidad horizontal por distancia, vertical independiente, sin boost diagonal. Baseline: 52px horizontal corto, 70px vertical y ratio 1.3, fuerte 150px configurable (110–210); no redefinir umbrales arbitrariamente sin comparar usabilidad y registrar decisión. Modos/restricciones contextuales.
+- Durante arrastre y lanzamiento, iluminar exactamente botón activo, mantener banner fijo y sello en lado opuesto (izquierda->derecha, derecha->izquierda, arriba->abajo, abajo->arriba); limpiar todo al cancelar. Utilizar responseLayout, choiceStyle, preview y gestures.bind cuando apropiados; consultar API real.
+- Montón visual, giro/revelación central, transición fluida, sonido discreto opcional y reduced-motion. Menú/paneles no disparan gesto; preservar foco, instancia y revisión. Busy evita dobles acciones; rechazo del motor restaura visual coherente.
+- Presentación emite intención semántica y espera resultado autorizado; no usar Session.answer/undo/restart ni onAnswer posterior a mutación como reglas RPG. No guardar datos futuros del encuentro en set cliente.
+
+Prueba comparativa explícita de demo original y adaptador con todas las direcciones, teclado, mouse/touch, cancelación, estados deshabilitados, layout móvil/PC y rechazo. Tema cambia estilo, no comportamiento ni reglas. Español inicial. Ver UI_UX, ART_DIRECTION y FIRST_TASK. No hay adaptador todavía.
