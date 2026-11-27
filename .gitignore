@@ -165,3 +165,7 @@ supabase/.branches/
 backups/
 *.dump
 *.sql.gz
+
+# Resultados de pruebas de navegador
+test-results/
+playwright-report/
