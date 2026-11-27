@@ -1,24 +1,36 @@
-# First Playable — registro de continuidad
+# First Playable · estado de continuidad
 
-Estado inicial (2026-11-26): encargo preparado; desarrollo no iniciado. Este archivo lo actualiza Codex durante su trabajo. No es prueba de implementación ni de conexión.
+Rama `feature/first-playable`, desde `deeb4f3`. Corte jugable de Valbruma implementado y verificado en local y en Supabase de desarrollo. La rama incorpora la definición de `docs/FIRST_TASK.md`.
 
-## Objetivo
-docs/FIRST_TASK.md. Leer AGENTS.md y docs/CODEX_SETUP.md.
+| Hito | Resultado comprobado |
+|---|---|
+| A · Mesa SCE | Motor original intacto. Mismo clasificador, gestos, disposición y feedback. Misión local, seis direcciones, ratón, teclado, touch emulado, cancelación, movimiento reducido, tema y paneles. |
+| B · Realms | Registro con GoTrue local y acceso por contraseña en desarrollo remoto. Invitaciones de un uso, dos linajes y dos oficios provisionales, varios personajes por cuenta. Aislamiento entre cuentas. |
+| C · Cooperación y recuperación | Dos cuentas completan el mismo encuentro por turnos. Una identidad ajena y el jugador fuera de turno reciben rechazo. Carrera y reintento conservan una sola transición. Tras recargar se recuperan carta, turno y equipo. |
+| D · Aventura y Admin | Encargo opcional de Ivo y Mara, combate, hallazgo, equipo, consumible, oro y retorno. Observación, invitaciones y compensación con motivo, revisión, actor, estado anterior/posterior y recibo. |
 
-## Hitos
-- [ ] A: SCE adaptado y prototipo local (v0.0.2).
-- [ ] B: Auth, personaje, mundo y persistencia (v0.0.3).
-- [ ] C: cooperación, recuperación y Admin lectura (v0.0.4–0.0.5).
-- [ ] D: aventura, inventario, oro y reparación Admin (v0.0.6–0.0.7).
+## Comprobaciones del 26–27 de noviembre de 2026
 
-## Checkpoint
-Rama/commit: pendiente.
-Entorno y conexión Supabase: no verificados desde Codex.
-Último avance probado: ninguno.
-Migraciones aplicadas: verificar antes de cambiar.
-Pruebas realizadas/resultados: ninguna en este encargo.
-Bloqueos: acceso y entorno aún por comprobar.
-Siguiente acción: leer documentación, inspeccionar repo y demo SCE, establecer plan interno y empezar hito A.
+- `npm test` pasó las dos suites originales SCE y las pruebas de paridad del catálogo, reglas, capacidad, rechazo y recuperación.
+- `npm run build` pasó TypeScript estricto de dominio y produjo ambas entradas de Vite. Se compiló con y sin configuración de Realms.
+- Cinco pruebas de Chromium pasaron sobre demo original y juego. Incluyen seis candidatos con sello y botón, cancelación, lanzamiento, teclas, dispositivo móvil emulado, exportar y restaurar un archivo, completar y cobrar la misión.
+- `tests/realms.mjs` pasó contra PostgreSQL 17 + GoTrue + PostgREST locales y contra el proyecto de desarrollo remoto. Cuatro identidades ficticias verificaron autorización, paridad de cada transición, carrera, idempotencia, reconexión de Auth, señales sujetas a RLS y reparación exactamente una vez.
+- La prueba online de Playwright pasó sobre el cliente compilado y el proyecto remoto. Dos contextos Chromium de jugadores y un tercero de operador completaron encuentro, recarga, compensación visible y rechazo del jugador en Admin. El navegador de Cloud usó un relé local de prueba con TLS verificado por la CA del entorno. La aplicación también reconcilia el snapshot al recuperar conexión y cada 12 segundos en primer plano.
+- Ambas migraciones se ejecutaron desde cero en una base local aislada. Se hizo un dump lógico de la base ficticia y se restauró en otra base local vacía con `pg_restore --single-transaction --exit-on-error`. Coincidieron recuentos, huellas de los seis personajes y los 102 eventos y número de expediciones. Solo se restauró en ese destino de prueba.
+- Supabase remoto autorizado únicamente en `ocnvfivxbnbypjfhpnlx`. Historial comprobado de nuevo el 27 de noviembre: `20261126203316_valbruma` y `20261126203325_valbruma_content`. Los nombres locales corresponden a los identificadores que asignó el servicio. No repetir migraciones. Roles administrativos de los ensayos remotos con caducidad.
+- El CLI completo agotó espacio en el volumen local de Docker. Para el ensayo se levantaron los tres servicios por separado. Touch se probó por eventos del navegador; siguen pendientes dispositivos táctiles físicos y el recorrido de entrega de correo en un buzón real.
 
-## Registro
-Añadir por checkpoint: fecha, cambios, commit/rama, decisiones provisionales, pruebas exactas y resultados, migraciones (local/remoto y ref), riesgos, bloqueo/acción requerida, siguiente paso concreto. Nunca guardar secretos, correos reales ni datos de prueba privados.
+## Historial
+
+- `198f2b2` · catálogo y motor TypeScript.
+- `e11652f` · adaptador, ilustraciones y mesa SCE.
+- `6dab59e` · cliente Realms, reglas transaccionales, cooperación, Admin y pruebas de API.
+- Reanudación del 27 de noviembre · se recuperaron las salidas de los ensayos terminados durante la sesión anterior. El commit `84a2ff3` conserva el historial remoto reconciliado y los seis ensayos de navegador.
+
+El 27 de noviembre se comprobó además la suscripción WebSocket a Postgres Changes contra el proyecto de desarrollo: Auth confirmó la sesión, Realtime confirmó la suscripción y una acción válida produjo una notificación con solo el actor propio y el contador.
+
+La prueba de alta en Chromium pasó en local con Auth y PostgREST reales. El operador emitió una invitación, una cuenta recién registrada la canjeó y creó su primer personaje desde la portada. Se comprobó que Admin reconoce una consulta temporalmente indisponible y recupera la vista al reintentar. Se actualizaron las guías de operación y las versiones de juego y lockfile a 0.0.7.
+
+## Entrega
+
+PR integrada de desarrollo [#8 · First Playable de TCards RPG](https://github.com/TCardell/tcards-rpg/pull/8). El código y las instrucciones de `5b6110b` pasaron `npm ci`, `npm test` y `npm run build` en un directorio nuevo a partir de `git archive`. El catálogo original de SCE conserva los mismos archivos que main. Para retomar, revisar la PR y las limitaciones de dispositivos y correo anteriores antes de ampliar la región.

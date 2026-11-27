@@ -1,5 +1,3 @@
-# Content
+# Contenido
 
-Futuras definiciones JSON de locations, npcs, items, enemies, encounters, quests, dungeons y expansions. IDs estables, texto español separado de reglas/IDs y validación de referencias. No hay contenido RPG publicado.
-
-Ver [STUDIO](../docs/STUDIO.md), [LANGUAGE](../docs/LANGUAGE.md) y [TUTORIAL](../docs/TUTORIAL.md). Validar esquema y referencias antes de publicar; no obligar a traducción inglesa ni a editor visual temprano.
+`valbruma.v1.json` reúne la región piloto, cuatro familias de carta, rutas, condiciones y efectos. El motor comprueba las referencias, los límites y la exclusividad de los gestos. Una prueba compara el catálogo con la definición instalada por la migración de contenido. Las modificaciones posteriores que afecten a partidas activas requieren una nueva versión.

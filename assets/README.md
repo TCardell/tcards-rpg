@@ -1,5 +1,3 @@
-# Assets
+# Ilustraciones de Valbruma
 
-Ilustraciones, iconos y audio futuros con licencia/procedencia y tamaños optimizados. No incluir material privado ni claves. SCE mantiene sus propios recursos originales.
-
-Ver [dirección artística](../docs/ART_DIRECTION.md) y [producción](../docs/ASSET_PIPELINE.md). Reutilizar ilustraciones por entidad/escena, separar temas/ornamentos, catálogo versionado con procedencia y fallback, arte provisional primero. IA por lotes/hojas como estrategia propuesta; no generar cientos antes de probar UI. No texto incrustado ni material de terceros sin permiso.
+Las nueve ilustraciones originales de `public/art/` se hicieron para el prototipo con formas y trazos SVG. Se sirven como imágenes estáticas por entidad o paisaje. Los temas cambian el marco y la mesa mediante CSS. SCE conserva aparte sus recursos originales.

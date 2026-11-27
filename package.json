@@ -1,13 +1,26 @@
 {
   "name": "tcards-rpg",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "private": true,
-  "description": "Foundation for TCards RPG",
+  "description": "Primer prototipo jugable de Valbruma",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.12.0"
   },
   "scripts": {
-    "test": "npm run test:sce",
-    "test:sce": "node packages/swipe/sce/tests/model.test.cjs && node packages/swipe/sce/tests/player-feedback.test.cjs"
+    "test": "npm run test:sce && node --experimental-strip-types --test tests/world.test.mjs",
+    "test:sce": "node packages/swipe/sce/tests/model.test.cjs && node packages/swipe/sce/tests/player-feedback.test.cjs",
+    "dev": "vite",
+    "build": "npm run typecheck && vite build",
+    "typecheck": "tsc",
+    "test:browser": "playwright test",
+    "test:realms": "node --experimental-strip-types tests/realms.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.119.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "typescript": "6.0.3",
+    "vite": "8.4.0"
   }
 }

@@ -4,9 +4,26 @@
 
 RPG web de mundo abierto, multijugador opcional, cartas dinámicas, mundos persistentes y aventuras procedurales.
 
-**Estado:** v0.0.1 — cimientos del proyecto (pre-alfa). No es todavía un videojuego jugable ni hay un servidor desplegado.
+**Estado de esta rama** · First Playable de Valbruma (prealfa v0.0.7). Aventura en solitario, mundo privado para dos viajeros y consola de operación verificados.
 
-## Visión
+## Jugar
+
+Desde la raíz, con Node.js 22.12+ (probado con Node 24):
+
+```sh
+npm ci
+npm run dev
+```
+
+Abre [el juego local](http://127.0.0.1:3000/) y elige **Jugar en solitario**. En la plaza, entra en la posada y conversa con Ivo. Puedes aplazar su encargo, recorrer el pueblo o seguir las huellas de Mara. En combate, una defensa prepara el contraataque. La mochila permite beber el tónico y equipar la hoja. Al regresar a la posada, cuenta a Ivo lo ocurrido para cobrar las ocho monedas.
+
+Arrastra la carta, pulsa el botón de la decisión o enfoca la mesa y usa las flechas. **A** y **D** corresponden a los gestos horizontales intensos. El diario, la mochila, el mapa y el tema se consultan sin gastar turno. Ajustes permite exportar la partida local y restaurarla en otro navegador.
+
+Para jugar juntos, configura Realms, entra con dos cuentas admitidas y sitúa ambos personajes en la plaza. En **Compañía**, uno prepara la expedición y comparte el código en privado. El otro lo canjea. Los jugadores alternan ataque y protección hasta resolver el encuentro, y pueden cerrar y recuperar su sesión durante el turno.
+
+La consola está en [/apps/admin/](http://127.0.0.1:3000/apps/admin/). El propietario provisiona el primer operador por el UUID de una cuenta confirmada. La guía incluye conexión, invitaciones de mundo, verificación de permisos y recuperación. [Operación de Supabase y Admin](supabase/README.md)
+
+## Visión a largo plazo
 - Mundo abierto de fantasía con viajes, NPC, poblados, tabernas, hostales, comercios, iglesias, castillos y mazmorras.
 - SCE v0.2.0 como base gráfica y referencia principal de interacción: seis gestos contextuales de cartas, con mochila, equipo, mapa y personaje en secciones separadas.
 - Personajes persistentes; juego individual y mundos privados con amigos, expediciones cooperativas, competitivas y cooperativas con duelo final.
@@ -36,20 +53,17 @@ RPG web de mundo abierto, multijugador opcional, cartas dinámicas, mundos persi
 - [Hoja de ruta](ROADMAP.md) · [Backlog](docs/BACKLOG.md) · [Instrucciones para agentes](AGENTS.md)
 - **[Encargo maestro First Playable](docs/FIRST_TASK.md)** · [Preparar Codex y Supabase](docs/CODEX_SETUP.md) · [Registro de progreso](PROGRESS.md)
 
-## Desarrollo inicial — First Playable
-Un objetivo autónomo de desarrollo con hitos internos v0.0.2–v0.0.7: interfaz fiel a SCE, Auth y persistencia, cooperación, aventura inicial, inventario/loot/oro y Admin básico. El trabajo no ha empezado; ver el encargo maestro y criterios de terminado. Sin gastos adicionales ni despliegue público sin autorización.
+## Verificación y continuidad
 
-## Base gráfica SCE (referencia principal)
-No sustituir SCE por un swipe genérico: reutilizar su disposición espacial, gestos, transición, feedback de botón/banner/sello opuesto y cancelación. Adaptar al estado RPG sin reutilizar su motor de cuestionario como autoridad. Ver [integración SCE](packages/swipe/README.md) y [primer encargo](docs/FIRST_TASK.md).
-
-## Probar la base SCE
-La copia original de SCE v0.2.0 está en `packages/swipe/sce/`, incluida su demo. Con Node.js 22+ (recomendación de desarrollo), ejecutar desde la raíz:
 ```sh
 npm test
+npm run build
+npx playwright install chromium
+npm run test:browser
 ```
-No hay dependencias que instalar para estas pruebas. Para probar la demo en navegador, abrir `packages/swipe/sce/index.html` o servir la raíz mediante `python -m http.server 8000` y navegar a esa ruta. No es una demo del RPG. El servidor HTTP local no es el backend multijugador.
 
-## Infraestructura prevista
-GitHub para código; Supabase para Auth, PostgreSQL, funciones y Realtime; Cloudflare Pages como candidato a alojamiento del cliente. El objetivo inicial es una alfa pequeña y gratuita, sujeto a cuotas y pruebas. Existe un proyecto de desarrollo Supabase llamado TCards RPG, cuyo estado activo y conexión de consulta se comprobaron el 26 de noviembre de 2026; no se ha integrado todavía en el código ni aplicado migraciones. Cloudflare no está configurado. Los secretos no se guardan en Git.
+La batería estándar de navegador cubre la demo SCE original y la aventura en solitario. Las pruebas online usan identidades ficticias separadas de las cuentas del equipo. Juego y Admin se generan en `dist/`. [Pruebas reproducibles](tests/README.md) · [Resultados y checkpoints](PROGRESS.md) · [Historial de cambios](CHANGELOG.md)
+
+La copia de SCE v0.2.0 permanece en `packages/swipe/sce/`. Con el servidor local activo se puede comparar su demo en [/packages/swipe/sce/](http://127.0.0.1:3000/packages/swipe/sce/). El adaptador utiliza el gesto, el layout, el sello opuesto y la presentación del motor original. El estado RPG se confirma en el motor local o en la transacción del mundo. [Integración SCE](packages/swipe/README.md)
 
 No se concede una licencia de código abierto en este repositorio por el mero hecho de ser público.
