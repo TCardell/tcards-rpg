@@ -81,7 +81,10 @@ export function authForm(parent, done, register = true) {
       const args = { email: email.control.value.trim(), password: password.control.value };
       const { data, error } =
         e.submitter === signup
-          ? await db.auth.signUp(args)
+          ? await db.auth.signUp({
+              ...args,
+              options: { emailRedirectTo: new URL(import.meta.env.BASE_URL, window.location.origin).href },
+            })
           : await db.auth.signInWithPassword(args);
       if (error) {
         const messages = {

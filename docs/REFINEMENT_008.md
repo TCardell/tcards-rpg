@@ -1,0 +1,11 @@
+# v0.0.8 — Interfaz e inmersión
+Feedback del propietario tras First Playable (27–28 noviembre 2026). Prioridad: no romper el prototipo publicado.
+
+## Alcance
+Portada Tale Cards RPG y versión; fondos reutilizados por contexto espacial (sin tiempo simulado ni arte definitivo); menús después de la mesa móvil, ubicación lateral PC; diario con estado de misión, mochila con ocupación y objetos ilustrados, mapa orientativo no navegable, ajustes de tema/fondo/pantalla completa. La interfaz refleja los datos actuales; no añade equipamiento, descubrimiento, stats ni capacidad nuevos. En Realms la lectura automática no muestra toast: último estado de sincronización discreto, errores de acciones explícitas permanecen. La dirección de confirmación de registro se calcula desde BASE_URL y origen real, sin modificar Auth, permisos, RLS o plantillas.
+
+## Verificación antes de fusionar
+El workflow de revisión ejecuta npm ci, npm test, build de Pages, Playwright Chromium (mesa y pruebas de presentación). No requiere claves de Supabase ni crea cuentas. Revisar resultados de Actions; no considerar el navegador online probado por esa comprobación. Tras fusionar, verificar GitHub Pages y con cuentas autorizadas: partida previa en solitario intacta, carta/revisión al abrir panel y cambiar ancho/tema, misión completa, gestos, inventario, recarga, dos cuentas cooperativas, errores reales visibles y ausencia del aviso recurrente. Probar confirmación de correo con una cuenta ficticia propia y el enlace real, después de comprobar Site URL y Redirect URLs exactas en dashboard (https://tcardell.github.io/tcards-rpg/). No compartir token ni enlace completo. Revisar también en móvil físico. No se cambia formato de guardado, catálogo, RPC ni esquema. Revertir la PR si aparece una regresión; el esquema no cambia.
+
+## Pendiente
+Teclado de doble pulsación/preselección profunda; debe probarse con repetición, tecla liberada, Escape/cancelación, selección inválida, enfoque, touch/ratón y confirmación idempotente. Ilustraciones panorámicas propias, variantes día/noche con reloj compartido, sonidos, velocidad de animación, transición entre lugares, rediseño completo de personaje e inventario, mayor mundo, progresión, combate, mazmorras y demás sistemas se reservan. No prometer resultados de pruebas todavía no ejecutadas.

@@ -20,3 +20,5 @@ Admin crece transversalmente a partir de Auth/persistencia, con herramientas bá
 ## Corte integrado verificado
 
 La rama First Playable cubre v0.0.2–v0.0.7 para la región piloto. La plaza comunica con la posada, el camino, la capilla y el mercado. Realms conserva la misión individual y una expedición cooperativa independiente. La evidencia y las limitaciones se mantienen en [PROGRESS.md](PROGRESS.md). La generación procedural, el aumento de contenido y las pruebas en dispositivos físicos siguen abiertos.
+
+Tras First Playable v0.0.7: v0.0.8 se dedica al refinamiento de interfaz e inmersión, sin nuevas mecánicas ni migraciones; ver docs/REFINEMENT_008.md. El segundo gran encargo de Codex (objetivo propuesto v0.0.9–v0.1.0) prioriza profundidad, contenido y pruebas, incluyendo el teclado de preselección/confirmación. No se fija alcance final de alfa aquí.

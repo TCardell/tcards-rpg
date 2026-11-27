@@ -1,0 +1,23 @@
+name: Verificar PR sin publicar
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+        env:
+          TCARDS_BASE_PATH: /tcards-rpg/
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test tests/browser/table.spec.mjs tests/browser/refinement.spec.mjs

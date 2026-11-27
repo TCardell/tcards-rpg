@@ -4,7 +4,7 @@
 
 RPG web de mundo abierto, multijugador opcional, cartas dinámicas, mundos persistentes y aventuras procedurales.
 
-**Estado de esta rama** · First Playable de Valbruma (prealfa v0.0.7). Aventura en solitario, mundo privado para dos viajeros y consola de operación verificados.
+**Estado de esta rama** · Valbruma (prealfa v0.0.8, refinamiento de interfaz). Aventura en solitario, mundo privado para dos viajeros y consola de operación verificados.
 
 ## Jugar
 
@@ -69,3 +69,6 @@ La batería estándar de navegador cubre la demo SCE original y la aventura en s
 La copia de SCE v0.2.0 permanece en `packages/swipe/sce/`. Con el servidor local activo se puede comparar su demo en [/packages/swipe/sce/](http://127.0.0.1:3000/packages/swipe/sce/). El adaptador utiliza el gesto, el layout, el sello opuesto y la presentación del motor original. El estado RPG se confirma en el motor local o en la transacción del mundo. [Integración SCE](packages/swipe/README.md)
 
 No se concede una licencia de código abierto en este repositorio por el mero hecho de ser público.
+
+## Refinamiento de interfaz v0.0.8
+Portada Tale Cards RPG, menú debajo de la mesa en móvil, fondos ambientales reutilizados por lugar (desactivables), paneles de diario/mochila/mapa, tema Brasas y cobre y pantalla completa si el navegador lo permite. Sincronización de Realms silenciosa con estado discreto. Las reglas, los datos de las partidas y SCE original se mantienen. El flujo del teclado de dos pulsaciones, nuevas mecánicas y variantes día/noche quedan para el siguiente trabajo con pruebas específicas. La confirmación de correo solicita la ruta base del juego; el propietario debe verificar la allowlist y probar un correo real. [Registro de alcance y comprobaciones](docs/REFINEMENT_008.md).

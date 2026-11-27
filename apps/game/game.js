@@ -1,4 +1,5 @@
 import './style.css';
+import { version } from '../../package.json';
 import { region, start, resolve, restore, choices } from '../../packages/engine/world.ts';
 import { table } from '../../packages/swipe/table.js';
 import {
@@ -25,6 +26,41 @@ const quest = [
 ];
 const panels = ['Diario', 'Mochila', 'Mapa', 'Compañía', 'Ajustes'];
 const types = { place: 'Lugar', npc: 'Personaje', item: 'Hallazgo', enemy: 'Encuentro' };
+// Presentación únicamente. El lugar del dominio no cambia al abrir una carta de NPC o botín.
+const scenery = {
+  square: 'village', inn: 'inn', keeper: 'inn', rumor: 'inn', request: 'inn',
+  road: 'forest', bridge: 'forest', enemy: 'forest', courier: 'forest', loot: 'forest',
+  market: 'village', chapel: 'chapel', gate: 'village', well: 'village',
+};
+const mobileLayout = matchMedia('(max-width:800px)');
+let connection = 'pending';
+const connectionLabels = { ready: 'Al día', pending: 'Sincronización pendiente', offline: 'Sin conexión' };
+function showConnection() {
+  const marker = root.querySelector('.connection');
+  if (!marker) return;
+  marker.dataset.state = connection;
+  marker.textContent = connectionLabels[connection];
+}
+function setConnection(next) {
+  connection = next;
+  showConnection();
+}
+function setScenery(art = 'village') {
+  document.body.dataset.scenery = art;
+  document.body.style.setProperty('--scene-art', 'url("' + import.meta.env.BASE_URL + 'art/' + art + '.svg")');
+}
+function positionMenu() {
+  const play = root.querySelector('.play');
+  if (!play) return;
+  const rail = play.querySelector('.rail'), nav = play.querySelector('.adventure-nav');
+  const scene = play.querySelector('.scene');
+  if (!nav || !rail || !scene) return;
+  // Mover el mismo nodo conserva botones, acciones y carta activa.
+  if (mobileLayout.matches && nav.parentElement !== play) scene.after(nav);
+  else if (!mobileLayout.matches && nav.parentElement !== rail)
+    rail.insertBefore(nav, rail.querySelector('.recent-title'));
+}
+mobileLayout.addEventListener('change', positionMenu);
 let sheet,
   room,
   user,
@@ -39,6 +75,7 @@ let sheet,
   dismissed = '',
   toastTimer;
 document.documentElement.dataset.theme = localStorage.getItem('tcards.theme') ?? 'forest';
+document.documentElement.dataset.ambience = localStorage.getItem('tcards.ambience') === 'off' ? 'off' : 'on';
 function report(message) {
   status.textContent = message;
   clearTimeout(toastTimer);
@@ -66,6 +103,7 @@ function cleanup() {
 function cover() {
   cleanup();
   screen = 'cover';
+  setScenery();
   mode = null;
   sheet = room = null;
   account.hidden = true;
@@ -74,8 +112,10 @@ function cover() {
     art = el('div', 'cover-art'),
     copy = el('div');
   copy.append(
+    el('span', 'cover-emblem', '♜'),
     el('span', 'eyebrow', 'Crónicas de la frontera'),
-    el('h1', '', 'Valbruma'),
+    el('h1', 'cover-title', 'Tale Cards RPG'),
+    el('p', 'cover-subtitle', 'Valbruma · Un mundo. Innumerables destinos.'),
     el(
       'p',
       '',
@@ -85,8 +125,9 @@ function cover() {
   art.append(copy);
   const box = el('section', 'cover-actions');
   box.append(
+    el('span', 'eyebrow', 'Libro I · Valbruma'),
     el('h2', '', 'El viajero sin destino'),
-    el('p', 'small', 'Una aventura de cartas en los confines del bosque.'),
+    el('p', 'small', 'Explora, decide y escribe tu propia historia. Una aventura de cartas en los confines del bosque.'),
     button(
       localStorage.getItem(saveKey) ? 'Continuar en solitario' : 'Jugar en solitario',
       safe(local),
@@ -98,6 +139,7 @@ function cover() {
       'small',
       'Solitario guarda en este dispositivo. Realms guarda tus personajes y permite viajar en compañía.',
     ),
+    el('p', 'cover-version', 'PREALFA · v' + version),
   );
   wrap.append(art, box);
   root.replaceChildren(wrap);
@@ -120,11 +162,14 @@ function local() {
 function onlineBox(title) {
   cleanup();
   screen = 'lobby';
+  setScenery();
   mode = 'online';
   account.hidden = false;
   const wrap = el('section', 'cover'),
     art = el('div', 'cover-art');
-  art.append(el('h1', '', 'Realms'));
+  art.append(el('span', 'cover-emblem', '♜'), el('div', 'realm-title'));
+  const realmTitle = art.querySelector('.realm-title');
+  realmTitle.append(el('span', 'eyebrow', 'Tale Cards RPG'), el('h1', '', 'Realms'), el('p', '', 'La frontera es más grande cuando se viaja en compañía.'));
   const box = el('section', 'cover-actions');
   box.append(el('h2', '', title));
   wrap.append(art, box);
@@ -211,6 +256,7 @@ async function selectCharacter(id) {
   sheet = data.sheet;
   room = data.room;
   mode = 'online';
+  setConnection(navigator.onLine ? 'ready' : 'offline');
   sessionStorage.setItem(selectedKey, id);
   enter();
   channel = db
@@ -218,30 +264,44 @@ async function selectCharacter(id) {
     .on(
       'postgres_changes',
       { event: '*', schema: 'public', table: 'tcards_signals', filter: 'actor=eq.' + user.id },
-      () => safe(sync)(true),
+      () => backgroundSync(),
     )
     .subscribe();
   // Recuperación de notificaciones perdidas, incluso si se suspende el websocket.
   poll = setInterval(() => {
-    if (!document.hidden && !busy) safe(sync)(true);
+    if (!document.hidden && !busy) backgroundSync();
   }, 12000);
 }
-async function sync(notify = false) {
+async function sync() {
   if (mode !== 'online' || screen !== 'play') return;
   const ticket = ++readTicket,
     old = sheet,
     oldRoom = room;
-  const next = await rpc('read', { scopeId: old.id });
+  let next;
+  try {
+    next = await rpc('read', { scopeId: old.id });
+  } catch (e) {
+    if (ticket === readTicket && screen === 'play' && mode === 'online')
+      setConnection(navigator.onLine ? 'pending' : 'offline');
+    throw e;
+  }
   if (ticket !== readTicket || screen !== 'play') return;
   sheet = next.sheet;
   room = next.room;
+  setConnection(navigator.onLine ? 'ready' : 'offline');
   if (
     sheet.revision !== old.revision ||
     room?.id !== oldRoom?.id ||
     room?.revision !== oldRoom?.revision
-  ) {
-    draw();
-    if (notify) report('Estado actualizado desde el mundo.');
+  ) draw();
+}
+// La sincronización periódica y Realtime no son acontecimientos narrativos.
+// Los errores de acciones explícitas siguen pasando por report()/safe().
+async function backgroundSync() {
+  try {
+    await sync();
+  } catch {
+    // sync() deja visible el estado de conexión sin repetir avisos flotantes.
   }
 }
 function enter() {
@@ -306,7 +366,9 @@ function draw() {
     c = region.cards[s.node],
     coop = inRoom(),
     land = el('img', 'landscape');
-  land.src = import.meta.env.BASE_URL + 'art/' + (coop ? 'forest' : c.art) + '.svg';
+  const ambient = coop ? 'forest' : (scenery[s.node] ?? 'village');
+  setScenery(ambient);
+  land.src = import.meta.env.BASE_URL + 'art/' + ambient + '.svg';
   land.alt = '';
   rail.append(
     el('span', 'eyebrow', mode === 'online' ? 'Realms · Mundo privado' : 'Partida en solitario'),
@@ -316,7 +378,12 @@ function draw() {
   const hud = el('div', 'hud');
   hud.append(el('span', '', '♥ ' + s.hp + '/10'), el('span', '', '◈ ' + s.gold + ' oro'));
   rail.append(hud);
-  const nav = el('nav');
+  if (mode === 'online') {
+    const marker = el('span', 'connection');
+    marker.title = 'Estado de la última sincronización con el mundo';
+    rail.append(marker);
+  }
+  const nav = el('nav', 'adventure-nav');
   nav.setAttribute('aria-label', 'Menú de aventura');
   for (const name of panels) {
     if (name === 'Compañía' && mode === 'local') continue;
@@ -329,11 +396,13 @@ function draw() {
   }
   rail.append(
     nav,
-    el('h3', '', 'Último suceso'),
+    el('h3', 'recent-title', 'Último suceso'),
     el('p', 'journal-note', room && coop ? room.note : sheet.note),
   );
   wrap.append(rail, scene, aside);
   root.replaceChildren(wrap);
+  positionMenu();
+  showConnection();
   const actions = mode === 'local' ? choices(s) : sheet.actions;
   let view = {
     family: types[c.kind],
@@ -429,24 +498,37 @@ function refreshPanel() {
   aside.append(header, box);
   if (panel === 'Diario') {
     box.append(
-      el('div', 'panel-label', 'Encargo de Valbruma'),
+      el('div', 'panel-label', 'Cuaderno de viaje'),
       el('h3', '', 'El correo del norte'),
-      el('p', '', quest[s.quest]),
+      el('span', 'quest-state', ['Disponible', 'En curso', 'Pendiente de entrega', 'Completada'][s.quest]),
+      el('p', 'journal-objective', quest[s.quest]),
+      el('div', 'panel-label', 'Último acontecimiento'),
       el('p', 'entry', sheet.note),
     );
   }
   if (panel === 'Mochila') {
-    box.append(
-      el('div', 'panel-label', s.potions + s.blade + ' de 3 espacios'),
-      el('p', 'entry', 'Tónico de hierbas × ' + s.potions + ' · Común'),
-      el(
-        'p',
-        'entry',
-        s.blade
-          ? 'Hoja de caminante · Poco común' + (s.equipped ? ' · Equipada' : '')
-          : 'Arma equipada · Ninguna',
-      ),
-    );
+    const used = s.potions + s.blade;
+    box.append(el('div', 'panel-label', used + ' de 3 espacios'));
+    const capacity = el('div', 'capacity');
+    capacity.setAttribute('role', 'img');
+    capacity.setAttribute('aria-label', used + ' de 3 espacios ocupados');
+    for (let i = 0; i < 3; i++) capacity.append(el('span', i < used ? 'filled' : ''));
+    box.append(capacity);
+    const inventory = el('div', 'inventory-list');
+    const item = (art, name, detail, rarity) => {
+      const row = el('article', 'inventory-item ' + rarity);
+      const img = el('img');
+      img.src = import.meta.env.BASE_URL + 'art/' + art + '.svg';
+      img.alt = '';
+      const description = el('div');
+      description.append(el('strong', '', name), el('p', 'small', detail));
+      row.append(img, description);
+      return row;
+    };
+    if (s.potions) inventory.append(item('bottle', 'Tónico de hierbas × ' + s.potions, 'Común · Consumible', 'common'));
+    if (s.blade) inventory.append(item('blade', 'Hoja de caminante', 'Poco común' + (s.equipped ? ' · Equipada' : ' · Sin equipar'), 'uncommon'));
+    if (!used) inventory.append(el('p', 'small', 'Tu mochila está vacía.'));
+    box.append(inventory, el('p', 'small', s.equipped ? 'Arma equipada: hoja de caminante' : 'Arma equipada: ninguna'));
     if (!inRoom())
       for (const a of (mode === 'local' ? choices(s) : sheet.actions).filter(
         (a) => a.slot === 'bag',
@@ -466,15 +548,25 @@ function refreshPanel() {
       el('h3', '', region.cards[s.node].title),
       el('p', '', 'Plaza de las campanas'),
     );
-    const list = el('ul');
-    for (const t of [
-      'Oeste · Posada y capilla',
-      'Norte · Camino de los fresnos y puente',
-      'Este · Mercado y muralla',
-      'Sur · Pozo viejo',
-    ])
-      list.append(el('li', '', t));
-    box.append(list);
+    const currentArea = ['inn','keeper','rumor','request'].includes(s.node) || s.node === 'chapel' ? 'west'
+      : ['road','bridge','enemy','courier','loot'].includes(s.node) ? 'north'
+      : ['market','gate'].includes(s.node) ? 'east' : s.node === 'well' ? 'south' : 'center';
+    const map = el('div', 'region-map');
+    map.setAttribute('aria-label', 'Mapa esquemático de Valbruma; no permite viajar directamente');
+    for (const [area, label, title] of [
+      ['north', 'N', 'Camino y puente'], ['west', 'O', 'Posada y capilla'],
+      ['center', '✦', 'Plaza'], ['east', 'E', 'Mercado y muralla'], ['south', 'S', 'Pozo viejo'],
+    ]) {
+      const node = el('div', 'map-node map-' + area);
+      node.append(el('span', 'map-symbol', label), el('span', '', title));
+      if (area === currentArea) {
+        node.classList.add('current');
+        node.setAttribute('aria-current', 'location');
+      }
+      map.append(node);
+    }
+    box.append(map, el('p', 'small', 'Mapa orientativo · Las rutas se eligen mediante la carta.'));
+    if (inRoom()) box.append(el('p', 'small', 'Expedición en el vado.'));
   }
   if (panel === 'Compañía') {
     if (room && ['waiting', 'active'].includes(room.phase)) {
@@ -521,15 +613,32 @@ function refreshPanel() {
     const theme = select('Tema', [
       ['forest', 'Bosque y oro'],
       ['slate', 'Pizarra y plata'],
+      ['ember', 'Brasas y cobre'],
     ]);
     theme.control.value = document.documentElement.dataset.theme;
     theme.control.onchange = () => {
       document.documentElement.dataset.theme = theme.control.value;
       localStorage.setItem('tcards.theme', theme.control.value);
     };
+    const ambience = select('Fondo ambiental', [['on', 'Activado'], ['off', 'Desactivado']]);
+    ambience.control.value = document.documentElement.dataset.ambience;
+    ambience.control.onchange = () => {
+      document.documentElement.dataset.ambience = ambience.control.value;
+      localStorage.setItem('tcards.ambience', ambience.control.value);
+    };
     box.append(
-      theme.wrapper,
+      el('div', 'panel-label', 'Apariencia'),
+      theme.wrapper, ambience.wrapper,
+    );
+    if (document.fullscreenEnabled && document.documentElement.requestFullscreen)
+      box.append(button('Alternar pantalla completa', safe(async () => {
+        if (document.fullscreenElement) await document.exitFullscreen();
+        else await document.documentElement.requestFullscreen();
+      })));
+    box.append(
+      el('div', 'panel-label', 'Controles'),
       el('p', 'small', 'Flechas para elegir. A y D para un gesto horizontal intenso.'),
+      el('div', 'panel-label', 'Partida · v' + version),
     );
     if (mode === 'local') {
       box.append(
@@ -581,16 +690,16 @@ window.addEventListener(
     }
   }),
 );
-window.addEventListener(
-  'online',
-  safe(() => sync(true)),
-);
-document.addEventListener(
-  'visibilitychange',
-  safe(() => {
-    if (!document.hidden) return sync(true);
-  }),
-);
+window.addEventListener('offline', () => {
+  if (mode === 'online' && screen === 'play') setConnection('offline');
+});
+window.addEventListener('online', () => {
+  if (mode === 'online' && screen === 'play') setConnection('pending');
+  backgroundSync();
+});
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) backgroundSync();
+});
 db?.auth.onAuthStateChange((event) => {
   if (event === 'SIGNED_OUT' && mode === 'online') cover();
 });
