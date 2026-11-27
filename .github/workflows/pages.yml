@@ -1,0 +1,72 @@
+name: Publicar TCards RPG en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Pruebas de reglas y SCE
+        run: npm test
+      - name: Compilar juego y Admin
+        env:
+          TCARDS_BASE_PATH: /tcards-rpg/
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          if [ -n "$VITE_SUPABASE_URL" ] && [ -n "$VITE_SUPABASE_PUBLISHABLE_KEY" ]; then
+            if [ "$VITE_SUPABASE_URL" != "https://ocnvfivxbnbypjfhpnlx.supabase.co" ] || [[ "$VITE_SUPABASE_PUBLISHABLE_KEY" != sb_publishable_* ]]; then
+              echo "::error::Usar únicamente URL del proyecto dev y clave publishable; no service_role ni secret."
+              exit 1
+            fi
+          elif [ -n "$VITE_SUPABASE_URL" ] || [ -n "$VITE_SUPABASE_PUBLISHABLE_KEY" ]; then
+            echo "::error::Configurar ambas variables públicas de Supabase o ninguna."
+            exit 1
+          else
+            echo "::notice::Compilación en solitario: Realms y Admin necesitan las dos variables públicas."
+          fi
+          npm run build
+      - name: Verificar artefacto
+        run: |
+          test -f dist/index.html
+          test -f dist/apps/admin/index.html
+          test -f dist/art/village.svg
+          grep -q '/tcards-rpg/assets/' dist/index.html
+          grep -q '/tcards-rpg/assets/' dist/apps/admin/index.html
+      - name: Preparar artefacto
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar en Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5

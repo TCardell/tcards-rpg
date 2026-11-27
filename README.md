@@ -8,6 +8,8 @@ RPG web de mundo abierto, multijugador opcional, cartas dinámicas, mundos persi
 
 ## Jugar
 
+Alojamiento previsto en GitHub Pages: [configuración y comprobaciones](docs/DEPLOYMENT.md). El despliegue debe activarse por el propietario; no se afirma que la URL esté operativa hasta comprobarla.
+
 Desde la raíz, con Node.js 22.12+ (probado con Node 24):
 
 ```sh

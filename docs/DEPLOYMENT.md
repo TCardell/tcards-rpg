@@ -1,0 +1,13 @@
+# Alojamiento de desarrollo — GitHub Pages
+
+GitHub Pages sustituye al candidato inicial Cloudflare Pages para publicar el frontend de desarrollo. Backend: Supabase existente. La web estática es pública; la autorización de Realms y Admin sigue en servidor. No es una alfa pública ni un entorno de producción independiente.
+
+## Activación (propietario)
+1. Settings → Pages → Build and deployment → Source: GitHub Actions. No elegir Deploy from a branch: Vite necesita compilar.
+2. Settings → Secrets and variables → Actions → Variables → New repository variable. Crear VITE_SUPABASE_URL con https://ocnvfivxbnbypjfhpnlx.supabase.co y VITE_SUPABASE_PUBLISHABLE_KEY con la clave publishable del mismo proyecto (Supabase → Settings → API Keys). No service_role, secret key ni contraseñas; Vite incrusta ambos valores públicos en el cliente. Si se omiten ambos, solo funciona solitario. Una variable sin la otra falla deliberadamente.
+3. En Supabase → Authentication → URL Configuration, Site URL: https://tcardell.github.io/tcards-rpg/ ; añadir esa URL a Redirect URLs si se requiere. Mantener confirmación de correo y RLS; no alterar plantillas ni migraciones. Verificar la URL real que indique Pages si difiere. El primer operador y las invitaciones se provisionan según supabase/README.md. No usar credenciales de los ensayos.
+4. Fusionar PR de configuración y ver Actions → Publicar TCards RPG en GitHub Pages. Si el primer run no arrancó o se ejecutó antes de activar Pages/variables, Run workflow en main. El trabajo instala Node 24, npm ci, ejecuta npm test, compila con Vite, comprueba entradas/arte y publica únicamente dist. Las siguientes fusiones en main publicarán automáticamente si las pruebas pasan. La compilación local conserva base /.
+5. URLs previstas: https://tcardell.github.io/tcards-rpg/ (juego); https://tcardell.github.io/tcards-rpg/apps/admin/ (Admin). Confirmar en Settings → Pages. Probar portada, solitario, imágenes, enlaces de vuelta, recarga y después login/Realms/Admin con cuentas autorizadas. Revisar consola y registros de Actions si falla. No se ha comprobado todavía el despliegue.
+
+## Rutas y retirada
+TCARDS_BASE_PATH=/tcards-rpg/ durante build en CI; import.meta.env.BASE_URL para arte dinámico, %BASE_URL% para enlaces HTML. Vite ajusta las referencias estáticas CSS/JS. Si se adopta dominio propio en futuro, ajustar base, Site URL y allowlist juntos. No publicar secretos ni repositorio completo. Solo frontend; no ejecutar migraciones desde workflow de Pages. Para retirar sitio, propietario desactiva Pages; conservar datos Supabase. Para volver a frontend anterior, revertir el cambio en rama y revisar compatibilidad de esquema; no revertir DB automáticamente.

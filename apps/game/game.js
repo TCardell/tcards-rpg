@@ -306,7 +306,7 @@ function draw() {
     c = region.cards[s.node],
     coop = inRoom(),
     land = el('img', 'landscape');
-  land.src = '/art/' + (coop ? 'forest' : c.art) + '.svg';
+  land.src = import.meta.env.BASE_URL + 'art/' + (coop ? 'forest' : c.art) + '.svg';
   land.alt = '';
   rail.append(
     el('span', 'eyebrow', mode === 'online' ? 'Realms · Mundo privado' : 'Partida en solitario'),
