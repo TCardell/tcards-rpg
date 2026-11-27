@@ -29,7 +29,7 @@ export function table(root, view, send, report) {
   const meta = el('div', 'sce-card-meta');
   meta.append(el('span', '', view.family), el('span', '', '✦'), el('span', '', 'VALBRUMA'));
   const art = el('img', 'illustration');
-  art.src = '/art/' + view.art + '.svg';
+  art.src = import.meta.env.BASE_URL + 'art/' + view.art + '.svg';
   art.alt = '';
   art.draggable = false;
   const stamp = el('div', 'sce-stamp');

@@ -22,3 +22,6 @@
 - Estructura modular reservada para juego, Engine, Studio, Admin, generador y backend.
 - Copia íntegra de SCE v0.2.0, demo, documentación y pruebas, fijada a un commit de origen.
 - Scripts de prueba del baseline. Sin backend, autenticación, contenido RPG, despliegue ni multijugador implementados.
+
+## Unreleased — alojamiento de desarrollo
+- Preparación de GitHub Pages mediante Actions: compilación Vite de juego y Admin bajo /tcards-rpg/, ajuste de enlaces y arte dinámico, pruebas de reglas/SCE y guía de configuración pública de Supabase. Sin migraciones ni cambios de reglas. Publicación pendiente de activar Pages y verificar CI.
