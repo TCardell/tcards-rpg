@@ -30,3 +30,7 @@ Rama `feature/first-playable`, desde `deeb4f3`. Corte jugable de Valbruma implem
 El 27 de noviembre se comprobó además la suscripción WebSocket a Postgres Changes contra el proyecto de desarrollo: Auth confirmó la sesión, Realtime confirmó la suscripción y una acción válida produjo una notificación con solo el actor propio y el contador.
 
 La prueba de alta en Chromium pasó en local con Auth y PostgREST reales. El operador emitió una invitación, una cuenta recién registrada la canjeó y creó su primer personaje desde la portada. Se comprobó que Admin reconoce una consulta temporalmente indisponible y recupera la vista al reintentar. Se actualizaron las guías de operación y las versiones de juego y lockfile a 0.0.7.
+
+## Entrega
+
+PR integrada de desarrollo [#8 · First Playable de TCards RPG](https://github.com/TCardell/tcards-rpg/pull/8). El código y las instrucciones de `5b6110b` pasaron `npm ci`, `npm test` y `npm run build` en un directorio nuevo a partir de `git archive`. El catálogo original de SCE conserva los mismos archivos que main. Para retomar, revisar la PR y las limitaciones de dispositivos y correo anteriores antes de ampliar la región.
