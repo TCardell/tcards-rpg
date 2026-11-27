@@ -1,3 +1,3 @@
 # TCards RPG Admin
 
-Centro de control web independiente: visualizar y gestionar juego, diagnosticar, corregir y restaurar de forma autorizada y auditada. Español, interfaz sobria/moderna; desarrollar incrementalmente con cada subsistema online. Ver [ADMIN](../../docs/ADMIN.md). No hay panel ni acceso admin implementado. Nunca incluir claves privadas ni escrituras privilegiadas directas en navegador.
+Abre `/apps/admin/` con la misma configuración Supabase del juego. El observador puede inspeccionar el mundo; el operador también puede emitir invitaciones y registrar compensaciones de oro. Cada compensación incluye motivo, revisión, recibo y auditoría. [Alta del primer operador y recuperación](../../supabase/README.md)

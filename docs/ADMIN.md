@@ -1,6 +1,6 @@
 # TCards RPG Admin — centro de control
 
-Requisito acordado: web unificada, elegante y técnica para visualizar, gestionar, modificar y restaurar el juego. Desarrollo transversal desde hitos iniciales online. Español, aplicación independiente de gameplay y Studio. No implementado.
+Requisito acordado: web unificada, elegante y técnica para visualizar, gestionar, modificar y restaurar el juego. Desarrollo transversal desde hitos iniciales online. Español, aplicación independiente de gameplay y Studio. El First Playable incluye inspección de personajes, expediciones y eventos, invitaciones y compensaciones auditadas. La tabla siguiente conserva la visión más amplia.
 
 | Área | Inspección y operaciones candidatas |
 |---|---|

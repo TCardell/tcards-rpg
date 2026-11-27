@@ -25,4 +25,8 @@ Rama `feature/first-playable`, desde `deeb4f3`. Corte jugable de Valbruma implem
 - `198f2b2` · catálogo y motor TypeScript.
 - `e11652f` · adaptador, ilustraciones y mesa SCE.
 - `6dab59e` · cliente Realms, reglas transaccionales, cooperación, Admin y pruebas de API.
-- Reanudación del 27 de noviembre · se recuperaron las salidas de los ensayos terminados durante la sesión anterior. El siguiente trabajo es cerrar las instrucciones de operación y abrir la PR integrada.
+- Reanudación del 27 de noviembre · se recuperaron las salidas de los ensayos terminados durante la sesión anterior. El commit `84a2ff3` conserva el historial remoto reconciliado y los seis ensayos de navegador.
+
+El 27 de noviembre se comprobó además la suscripción WebSocket a Postgres Changes contra el proyecto de desarrollo: Auth confirmó la sesión, Realtime confirmó la suscripción y una acción válida produjo una notificación con solo el actor propio y el contador.
+
+La prueba de alta en Chromium pasó en local con Auth y PostgREST reales. El operador emitió una invitación, una cuenta recién registrada la canjeó y creó su primer personaje desde la portada. Se comprobó que Admin reconoce una consulta temporalmente indisponible y recupera la vista al reintentar. Se actualizaron las guías de operación y las versiones de juego y lockfile a 0.0.7.

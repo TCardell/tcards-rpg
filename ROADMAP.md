@@ -16,3 +16,7 @@ El orden prioriza un corte vertical online desde el principio. Hitos propuestos,
 | v0.1.0 | Alfa privada con amigos | Pruebas en dos dispositivos reales, backup/restore, despliegue controlado, métricas y feedback |
 
 Admin crece transversalmente a partir de Auth/persistencia, con herramientas básicas por subsistema y restauración probada. El prólogo candidato TUTORIAL.md es objetivo jugable progresivo conforme existan las mecánicas, no bloque de v0.0.2. Contenido JSON validado y recursos provisionales antes de Studio/arte masivo. Después: Studio, expansiones, contenido regional, propiedades, hardcore, rutinas y economía ampliada, Realms, accesibilidad y rendimiento. Orden de sistemas avanzados sujeto a revisión; no se promete que todos estén en alfa. Español único inicial. No comprometer fecha ni número de jugadores sin medición.
+
+## Corte integrado verificado
+
+La rama First Playable cubre v0.0.2–v0.0.7 para la región piloto. La plaza comunica con la posada, el camino, la capilla y el mercado. Realms conserva la misión individual y una expedición cooperativa independiente. La evidencia y las limitaciones se mantienen en [PROGRESS.md](PROGRESS.md). La generación procedural, el aumento de contenido y las pruebas en dispositivos físicos siguen abiertos.

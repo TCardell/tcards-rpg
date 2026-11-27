@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.7 · First Playable en rama de desarrollo
+
+- Valbruma incorpora catorce situaciones, prólogo opcional, combate, consumible, equipo y oro. Guardado local versionado con exportación y restauración.
+- Mesa móvil y de escritorio sobre SCE v0.2.0, nueve ilustraciones originales y dos temas.
+- Realms integra Supabase Auth, invitaciones de un uso, revisión esperada, recibos, expediciones de dos cuentas y reconciliación de estado.
+- Admin permite observar personajes y expediciones, consultar auditoría y compensar oro. Verificación local, remota y en Chromium documentada en PROGRESS.md.
+
 ## Unreleased — documentación de diseño (2026-11-26)
 - Especificación UI/UX: portada, baraja y carta activa, interacción móvil, escritorio ampliado, paisajes contextuales, menú y persistencia.
 - Especificación CARDS.md: cartas como situaciones dinámicas, cuatro familias acordadas, transiciones, ejemplos, contratos provisionales y criterios de aceptación.
