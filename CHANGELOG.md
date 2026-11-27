@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.8 — Interfaz e inmersión
+- Portada Tale Cards RPG, versión visible, fondos por lugar reutilizando arte existente (ajuste para desactivar), tema Brasas y cobre y pantalla completa cuando disponible.
+- Menú móvil después de carta y decisiones; paneles diario, mochila, mapa y ajustes mejorados sin cambiar reglas ni acciones.
+- Realms: sincronización de fondo silenciosa y estado discreto de última lectura; errores explícitos conservados.
+- Registro: dirección de retorno explícita basada en la ruta pública de Vite; verificar correo real y allowlist de Auth.
+- Comprobación PR con pruebas existentes, nuevas pruebas visuales/funcionales y build. Sin migraciones, cambios de dominio o baseline SCE. Nuevo teclado de dos pulsaciones pendiente.
+
 ## 0.0.7 · First Playable en rama de desarrollo
 
 - Valbruma incorpora catorce situaciones, prólogo opcional, combate, consumible, equipo y oro. Guardado local versionado con exportación y restauración.
